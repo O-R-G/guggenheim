@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+
+
+/*----------------------------------------------- 
+  elements 
+-----------------------------------------------*/
+
+html, body {
+    margin: 0px;    
+    font-family: Helvetica, Arial, sans-serif;    
+    font-size: 16px;
+    line-height: 21px;
+    background-color: #FFF;
+    color: #333;
+}
+
+body {
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link,
+a:visited {
+    color: #000;
+}
+
+a:hover {
+    border-bottom:2px solid black;
+}
+
+a:active {
+    color: #FFF;
+    border-bottom:2px solid black;
+}
+
+
+/*-----------------------------------------------
+  ids
+-----------------------------------------------*/
+
+#container {
+    width: 100%;
+    padding: 4px;
+}
+
+#two, #zero, #one, #seven {
+    display: inline-block;
+    width: 24%;
+}
+
+/*-----------------------------------------------
+  classes
+-----------------------------------------------*/
+
+.thumb {
+    display: inline-block;
+    width: 24%;
+    padding: 5px 10px;
+    vertical-align: top;
+    margin: 0px;
+}
+
+.img-container {
+    position: relative;  
+    /* display: none; */
+}
+
+.img-container img {
+    vertical-align: top;
+}
+
+.stack {
+}
+
+.caption {
+    padding-top: 6pt;
+    font-size: 9pt;
+    line-height: 12pt;
+	text-align: left;
+    cursor: pointer;
+}
+
+.square {
+    /* margin is calculated based on parent width, so
+    this auto-squares a div that contains it */
+    margin-top: 100%;
+}
+
+.centeralign {
+    text-align: center;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);    
+    transform: translate(-50%, -50%);
+}
+
+.tall {
+    height: 100%;
+    width: auto;
+}
+
+.wide {
+    height: auto;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
