@@ -14,7 +14,7 @@
         This is a simulation . . . <br />
         <a href='../mobile/mac.zip'>Download a working demo *mac*</a> 
         or <a href='../mobile/windows.zip'>*windows*</a> <br />
-        <a href='../mobile/gyroscope.zip'>Download a video</a> <br />
+        <a href='../mobile/gyroscope.mp4'>Watch the phone video</a> <br />
         <a href='http://www.o-r-g.com/dev'>Go to functional prototype *iphone*</a>
     </div>
 </div>
