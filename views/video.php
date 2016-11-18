@@ -7,9 +7,11 @@
         </video>
     </div>
     <div id="logo" style="width: 500px;">
-        This is a video screen grab . . . <br />
-        Click here to <a href='../mobile/mac.zip'>download a working application *mac*</a> <br />
-        Click here to <a href='../mobile/windows.zip'>download a working application *windows*</a>
+        This is a simulation . . . <br />
+        <a href='../mobile/mac.zip'>Download a working demo *mac*</a> 
+        or <a href='../mobile/windows.zip'>*windows*</a> <br />
+        <a href='../mobile/gyroscope.zip'>Download a video</a> <br />
+        <a href='http://www.o-r-g.com/dev'>Go to functional prototype *iphone*</a>
     </div>
 </div>
 
