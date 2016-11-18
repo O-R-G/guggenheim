@@ -1,7 +1,5 @@
 <style>
-body {
-	background-color: #FFF;
-}
+    body { background-color: #FFF; }
 </style>
 
 <div id="container">
