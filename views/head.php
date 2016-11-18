@@ -1,5 +1,6 @@
 <? 
-$host = "http://dev.o-r-g.local/guggenheim";
+// $host = "http://dev.o-r-g.local/guggenheim";
+$host = "http://dev.o-r-g.com/guggenheim";
 ?>
 
 <!DOCTYPE html>

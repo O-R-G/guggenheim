@@ -3,7 +3,7 @@
     <div id="two" class="thumb">
         <div class="img-container">
             <div class="square"></div>
-            <img src="media/png/2.png" class="stack centered wide"><?
+            <img src="media/png/k/2.png" class="stack centered wide"><?
             $dir = "media/2/";
             chdir($dir);      
             $images = glob("*.jpg");
@@ -17,7 +17,7 @@
     <div id="zero" class="thumb">
         <div class="img-container">
             <div class="square"></div>
-            <img src="media/png/0.png" class="stack centered wide"><?
+            <img src="media/png/k/0.png" class="stack centered wide"><?
             $dir = "../0/";
             chdir($dir);      
             $images = glob("*.jpg");
@@ -31,7 +31,7 @@
     <div id="one" class="thumb">
         <div class="img-container">
             <div class="square"></div>
-            <img src="media/png/1.png" class="stack centered wide"><?
+            <img src="media/png/k/1.png" class="stack centered wide"><?
             $dir = "../1/";
             chdir($dir);      
             $images = glob("*.jpg");
@@ -45,7 +45,7 @@
     <div id="seven" class="thumb">
         <div class="img-container">
             <div class="square"></div>
-            <img src="media/png/7.png" class="stack centered wide"><?
+            <img src="media/png/k/7.png" class="stack centered wide"><?
             $dir = "../7/";
             chdir($dir);      
             $images = glob("*.jpg");
