@@ -56,9 +56,9 @@
         </div>
     </div>
 
-    <!-- <div id="logo">
+    <div id="logo">
         <img src="media/png/logo.png">
-    </div> -->
+    </div>
  
 </div>
 
