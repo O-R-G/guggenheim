@@ -1,3 +1,9 @@
+<style>
+body {
+	background-color: #FFF;
+}
+</style>
+
 <div id="container">
     <div id="video">
         <div class="img-container">
