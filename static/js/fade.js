@@ -107,7 +107,8 @@ function updateall(thisincrement) {
 
     
 // set interval 
-interval = setInterval(function() { updateall(0.0005); }, 60);
+// interval = setInterval(function() { updateall(0.0005); }, 60);
+interval = setInterval(function() { updateall(0.1); }, 60);
 // interval = setInterval(function() { updateall(0.001); }, 1000);
 
 

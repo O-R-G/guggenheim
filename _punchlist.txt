@@ -1,0 +1,7 @@
++ css h + v centering (.square)
++ bg to white
+- main.php fix chdir logic
+- rm transitions
+- establish closures clearly
+- sound?
+- set click handlers

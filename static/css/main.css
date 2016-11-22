@@ -15,7 +15,7 @@ html, body {
     font-family: Helvetica, Arial, sans-serif;    
     font-size: 16px;
     line-height: 21px;
-    background-color: #000;
+    background-color: #FFF;
     color: #666;
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 img {
-    width: 100%;
+    /* width: 100%; */
 }
 
 a {
@@ -72,20 +72,23 @@ a:active {
 -----------------------------------------------*/
 
 .thumb {
-    display: inline-block;
+    position: relative;
     width: 24%;
     padding: 5px 10px;
     vertical-align: top;
     margin: 0px;
+    display: inline-block;
 }
 
 .img-container {
-    position: relative;  
+    position: absolute;
+    width: 100%;
     /* display: none; */
 }
 
 .img-container img {
     vertical-align: top;
+    /* width: 100%; */
 }
 
 .stack {
@@ -131,4 +134,8 @@ a:active {
 
 .hidden {
     display: none;
+}
+
+.debug {
+    background-color: #FF0;
 }
