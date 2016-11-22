@@ -55,11 +55,6 @@ a:active {
     padding: 4px;
 }
 
-#two, #zero, #one, #seven {
-    display: inline-block;
-    width: 24%;
-}
-
 #logo {
     position: fixed;
     bottom: 10px;
@@ -73,10 +68,10 @@ a:active {
 
 .thumb {
     position: relative;
-    width: 24%;
+    width: 20%;
+    margin: 2%;
     padding: 5px 10px;
     vertical-align: top;
-    margin: 0px;
     display: inline-block;
 }
 
