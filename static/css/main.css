@@ -62,6 +62,18 @@ a:active {
     width: 180px;
 }
 
+#controls {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    width: 25%;
+}
+
+#control {
+    width: 100%;
+    cursor: pointer;
+}
+
 /*-----------------------------------------------
   classes
 -----------------------------------------------*/
@@ -90,9 +102,8 @@ a:active {
 }
 
 .caption {
-    padding-top: 6pt;
-    font-size: 9pt;
-    line-height: 12pt;
+    font-size: 8pt;
+    line-height: 9pt;
 	text-align: left;
     cursor: pointer;
 }

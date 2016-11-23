@@ -48,6 +48,27 @@ function init() {
     increment2 = (Math.random() * 3) + 1;
     increment3 = (Math.random() * 3) + 1;
     increment4 = (Math.random() * 3) + 1;
+
+    // build arrays of children in global scope so can use elsewhere
+    // and then can shuffle
+
+    // click stop / start
+    // window.addEventListener('click', function() {
+
+    controls = document.getElementById("controls");
+    control = document.getElementById("control");
+
+    controls.addEventListener('click', function() {
+        if (interval) {
+            clearInterval(interval);
+            interval = null;
+            control.src="media/svg/start.svg";
+        }
+        else {
+            interval = setInterval(function() { updateall(.1); }, 60);
+            control.src="media/svg/stop.svg";
+        }
+    });
 }
 init();
 
@@ -70,8 +91,10 @@ function update(thisstack, thisindex, thisincrement) {
     }
     var img = imgcontainers[thisstack].children[thisindex % imgcontainers[thisstack].children.length];
     var previmg = imgcontainers[thisstack].children[previndex];
-    img.style.opacity = parseFloat(img.style.opacity) + thisincrement;
-    previmg.style.opacity = parseFloat(previmg.style.opacity) - thisincrement;
+    // img.style.opacity = parseFloat(img.style.opacity) + thisincrement;
+    img.style.opacity = 1.0;
+    // previmg.style.opacity = parseFloat(previmg.style.opacity) - thisincrement;
+    previmg.style.opacity = 0.0;
     if (parseFloat(img.style.opacity) >= 1.0) 
         thisindex++;    
     thisindex %= imgcontainers[thisstack].children.length;
@@ -111,6 +134,7 @@ function updateall(thisincrement) {
 // interval = setInterval(function() { updateall(0.1); }, 60);
 // interval = setInterval(function() { updateall(0.25); }, 60);
 // interval = setInterval(function() { updateall(0.1); }, 60);
+// interval = setInterval(function() { updateall(.1); }, 120);
 interval = setInterval(function() { updateall(.1); }, 120);
 // interval = setInterval(function() { updateall(0.001); }, 1000);
 

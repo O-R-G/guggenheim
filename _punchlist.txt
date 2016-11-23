@@ -1,7 +1,24 @@
 + css h + v centering (.square)
 + bg to white
 + main.php chdir() logic
-- transitions
+
+- .mov of sequence 
+- sound?
+- on load, plays a quick shuffle
+  then lands on one arrangement
+  click to reshuffle, rearrange
+  click on image for caption
+- controller for start, stop, restart
+/ captions
+  read from folder of captions
+  update div.innerHTML or textContent
+  $lines = file('http://www.example.com/'); read file
+  explode(",", $cpations, 2); splits into two strings on first ","
+- css fades, deprecate js fades
+- click handlers to show captions
+- captions css animations?
+- updatestack() moves to next in stack
+  updatecard() draws current in current state
+  settimeout() not setinterval()
 - establish closures clearly
 - sound?
-- click handlers
