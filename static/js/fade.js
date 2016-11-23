@@ -17,8 +17,9 @@ var o_src;
 var gallery;
 var fullscreen;
 var fullwindow;
-var mobile=false;
-var debug=false;
+var speed = 60;
+var mobile = false;
+var debug = true;
 
 // get elements
 
@@ -36,7 +37,8 @@ function init() {
         for (var j = 1; j < imgcontainers[i].children.length; j++) {
             // children[0] = .square div, so skip
             var img = imgcontainers[i].children[j];
-            img.style.opacity = "0.00";
+            // img.style.opacity = "0.00";
+            img.style.visibility = "hidden";
         }
     }
     // first child is not an img ** fix **
@@ -57,25 +59,63 @@ function init() {
 
     controls = document.getElementById("controls");
     control = document.getElementById("control");
-
+    
     controls.addEventListener('click', function() {
         if (interval) {
             clearInterval(interval);
             interval = null;
-            control.src="media/svg/start.svg";
+            control.src = "media/svg/start.svg";
         }
         else {
-            interval = setInterval(function() { updateall(.1); }, 60);
-            control.src="media/svg/stop.svg";
+            interval = setInterval(function() { updateall(1); }, speed);
+            control.src = "media/svg/stop.svg";
         }
     });
+
+    /* debug
+    controls.addEventListener('click', function() {
+        updateall(1);
+    });
+    */
 }
 init();
 
 
 // update
 
-function update(thisstack, thisindex, thisincrement) {
+function update(thisstack, thisindex) {
+
+    // first child is not an img
+    // should fix this more robustly
+    // check if img always
+    // also previndex goes to to 0 which is an error ** fix **
+
+    var previndex = (thisindex - 1) % imgcontainers[thisstack].children.length;
+    if (previndex == 0) previndex = imgcontainers[thisstack].children.length - 1;
+    var img = imgcontainers[thisstack].children[thisindex % imgcontainers[thisstack].children.length];
+    var previmg = imgcontainers[thisstack].children[previndex];
+    if (debug) {
+        console.log(imgcontainers[thisstack].children.length);
+        console.log("previndex = " + previndex);
+        console.log("thisindex = " + thisindex);
+        // console.log("previmg.src = " + previmg.src);
+        // console.log("img.src = " + img.src);
+        console.log("+ + +");
+    }
+    previmg.style.visibility = "hidden";
+    img.style.visibility = "visible";
+    thisindex++;    
+    thisindex %= imgcontainers[thisstack].children.length;
+    if (thisindex == 0) thisindex++;        // first child is not an img
+                                            // should fix this more robustly
+                                            // check if img always
+    return thisindex;
+}
+
+
+// updateincrementfade
+
+function updateincrementfade(thisstack, thisindex, thisincrement) {
 
     // first child is not an img
     // should fix this more robustly
@@ -104,27 +144,30 @@ function update(thisstack, thisindex, thisincrement) {
     return thisindex;
 }
 
-     
-// var index0 = update(0, index0, 0.1);
 
 // update all
 
 function updateall(thisincrement) {
 
-    for (var i = 0; i < thumbs.length; i++) {    
-        /*
-        index0 = update(0, index0, thisincrement*2.5);
-        index1 = update(1, index1, thisincrement*1.25);
-        index2 = update(2, index2, thisincrement*1.5);
-        index3 = update(3, index3, thisincrement*2);
-        */
+        index0 = update(0, index0);
+        index1 = update(1, index1);
+        index2 = update(2, index2);
+        index3 = update(3, index3);
 
-        index0 = update(0, index0, thisincrement*increment1);
-        index1 = update(1, index1, thisincrement*increment2);
-        index2 = update(2, index2, thisincrement*increment3);
-        index3 = update(3, index3, thisincrement*increment4);
+    /*
+    for (var i = 0; i < thumbs.length; i++) {    
+
+        // index0 = update(0, index0, thisincrement*increment1);
+        // index1 = update(1, index1, thisincrement*increment2);
+        // index2 = update(2, index2, thisincrement*increment3);
+        // index3 = update(3, index3, thisincrement*increment4);
+        // index0 = update(0, index0);
+        // index1 = update(1, index1);
+        // index2 = update(2, index2);
+        // index3 = update(3, index3);
     }
     // index++;
+    */
 }
 
 
@@ -135,8 +178,8 @@ function updateall(thisincrement) {
 // interval = setInterval(function() { updateall(0.25); }, 60);
 // interval = setInterval(function() { updateall(0.1); }, 60);
 // interval = setInterval(function() { updateall(.1); }, 120);
-interval = setInterval(function() { updateall(.1); }, 120);
 // interval = setInterval(function() { updateall(0.001); }, 1000);
+interval = setInterval(function() { updateall(1); }, speed);
 
 
 // utility

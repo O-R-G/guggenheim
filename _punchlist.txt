@@ -1,22 +1,22 @@
 + css h + v centering (.square)
 + bg to white
 + main.php chdir() logic
-
-- .mov of sequence 
-- sound?
+- rm captions from child divs
+- css fades, deprecate js fades
 - on load, plays a quick shuffle
   then lands on one arrangement
   click to reshuffle, rearrange
   click on image for caption
-- controller for start, stop, restart
-/ captions
+- .mov of sequence or just screenshots into pdf is fine
++ controller for start, stop, restart
++ captions
   read from folder of captions
   update div.innerHTML or textContent
   $lines = file('http://www.example.com/'); read file
   explode(",", $cpations, 2); splits into two strings on first ","
-- css fades, deprecate js fades
+/ sound?
 - click handlers to show captions
-- captions css animations?
+- captions css animate fade in
 - updatestack() moves to next in stack
   updatecard() draws current in current state
   settimeout() not setinterval()
