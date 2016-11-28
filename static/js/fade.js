@@ -17,9 +17,9 @@ var o_src;
 var gallery;
 var fullscreen;
 var fullwindow;
-var speed = 60;
+var speed = 600;
 var mobile = false;
-var debug = true;
+var debug = false;
 
 // get elements
 
@@ -55,20 +55,20 @@ function init() {
     // and then can shuffle
 
     // click stop / start
-    // window.addEventListener('click', function() {
 
-    controls = document.getElementById("controls");
-    control = document.getElementById("control");
+    // controls = document.getElementById("controls");
+    // control = document.getElementById("control");
     
-    controls.addEventListener('click', function() {
+    window.addEventListener('click', function() {
+    // controls.addEventListener('click', function() {
         if (interval) {
             clearInterval(interval);
             interval = null;
-            control.src = "media/svg/start.svg";
+            // control.src = "media/svg/start.svg";
         }
         else {
             interval = setInterval(function() { updateall(1); }, speed);
-            control.src = "media/svg/stop.svg";
+            // control.src = "media/svg/stop.svg";
         }
     });
 
