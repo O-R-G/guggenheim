@@ -15,7 +15,25 @@
   $lines = file('http://www.example.com/'); read file
   explode(",", $cpations, 2); splits into two strings on first ","
 / sound?
+
++ don't spell out 2 0 1 7 
++ The 7 is persistent
++ logo black and smaller
+
+/ The caption position doesn¹t seem practical. Let¹s go with Artist, Title, Date and place the rest of the information 
+
+/ The movement of the images is much too fast. I understand why this is so based on the roulette controller, but I would 
+prefer slower movement.
+
+/ Can a touch reveal the caption info, a second touch reactive the movement so that we don¹t have to have a controller? I'm 
+not sure how this impacts mobile.
+
+x Would it be interesting to add a subliminal message? Happy New Year?
+
+/ The spacing of the image bounding boxes can be lifted from the design of the printed card.
+
 - click handlers to show captions
+- captions divs, auto-populate
 - captions css animate fade in
 - updatestack() moves to next in stack
   updatecard() draws current in current state

@@ -93,7 +93,7 @@
    
     <!-- <div id="controls">
         <img src="media/svg/stop.svg" id="control">
-    </div> -->    
+    </div> -->
 
 <script type="text/javascript" src="<? echo $host ?>/static/js/fade.js"></script>
 

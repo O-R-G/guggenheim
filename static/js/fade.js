@@ -17,7 +17,7 @@ var o_src;
 var gallery;
 var fullscreen;
 var fullwindow;
-var speed = 600;
+var speed = 1000;
 var mobile = false;
 var debug = false;
 
