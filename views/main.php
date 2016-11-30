@@ -27,7 +27,7 @@
                 $i++;
             }
         ?></div>
-        <div class="caption"><?
+        <div class="caption-container"><?
             $i = 0;
             foreach($captionsshort as $captionshort) {
                 echo "<div class='caption'>" . $captionshort . "</div>";
@@ -56,7 +56,7 @@
                 $i++;
             }
         ?></div>
-        <div class="caption"><?
+        <div class="caption-container"><?
             $i = 0;
             foreach($captionsshort as $captionshort) {
                 echo "<div class='caption'>" . $captionshort . "</div>";
@@ -85,7 +85,7 @@
                 $i++;
             }
         ?></div>
-        <div class="caption"><?
+        <div class="caption-container"><?
             $i = 0;
             foreach($captionsshort as $captionshort) {
                 echo "<div class='caption'>" . $captionshort . "</div>";
@@ -95,14 +95,13 @@
     </div>
 
     <div id="seven" class="thumb"><? 
-        $number = "7"; 
+        $number = "7";
         ?><div class="img-container">
             <div class="square"></div>
             <img src="media/png/<? echo $number; ?>.png" class="stack centered wide"><?
-            // removed for now, but should update class 
-            // so that it is not shuffled like others
         ?></div>
-        <div class="caption">
+       <div class="caption-container">
+            <div class="caption"><a href="">Credits —</a></div>
         </div>
     </div>
 

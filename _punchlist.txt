@@ -1,12 +1,12 @@
 + css h + v centering (.square)
 + bg to white
 + main.php chdir() logic
-- css fades, deprecate js fades
-- on load, plays a quick shuffle
++ css fades, deprecate js fades
+x on load, plays a quick shuffle
   then lands on one arrangement
   click to reshuffle, rearrange
   click on image for caption
-- .mov of sequence or just screenshots into pdf is fine
++ .mov of sequence or just screenshots into pdf is fine
 + controller for start, stop, restart
 + captions
   read from folder of captions
@@ -17,21 +17,21 @@
 + The 7 is persistent
 + logo black and smaller
 + img-contrainer css
-
 + captions divs, auto-populate
 + short captions
 x captions css animate fade in
 + rm captions from child divs
-- click handlers to show captions
-- captions css
-
-/ Can a touch reveal the caption info, a second touch reactive the movement so that we don¹t have to have a controller? I'm not sure how this impacts mobile.
-
-- updatestack() moves to next in stack
-  updatecard() draws current in current state
-  settimeout() not setinterval()
-- establish closures clearly
-- sound?
-
++ captions update
++ window click stops animation, shows captions
++ settimeout() not setinterval()
++ establish closures
 x subliminal message?
-/ speed, varied speeds
++ speed, varied speeds
+- click cancel bubble / stop propogation
+    http://www.quirksmode.org/js/events_order.html
+/ captions css (relative? margin?)
+/ credits
+- sound?
+- "footer" privacy statement, etc.
+- shuffle arrays
+    http://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order

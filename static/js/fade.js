@@ -8,297 +8,114 @@
 //      .img centered [wide][tall]
 //    .caption
 
-var thumbs = [];
-var imgcontainers  = [];
-var captions = [];
+var imgcontainers = [];
+var captioncontainers = [];
 var imgs = [];
+var captions = [];
 var index;
+var index0 = 1;
+var index1 = 1;
+var index2 = 1;
+var index3 = 1;
 var o_src;
 var gallery;
 var fullscreen;
 var fullwindow;
-var speed = 1000;
+var speed = 500;
+var timers = [];  // timer ids
+var interval = true;
 var mobile = false;
-var debug = false;
-
-// get elements
-
-var thumbs = document.getElementsByClassName('thumb');
-var imgcontainers = document.getElementsByClassName('img-container');
-var captions = document.getElementsByClassName('caption');
-
-// shuffle(imgcontainers);
+var debug = true;
 
 // init
 
 function init() {
-    index=1;
-    for (var i = 0; i < thumbs.length; i++) {
-        for (var j = 1; j < imgcontainers[i].children.length; j++) {
-            // children[0] = .square div, so skip
-            var img = imgcontainers[i].children[j];
-            // img.style.opacity = "0.00";
-            img.style.visibility = "hidden";
-        }
-    }
-    // first child is not an img ** fix **
-    index0 = 1;
-    index1 = 1;
-    index2 = 1;
-    index3 = 1;
-    increment1 = (Math.random() * 3) + 1;
-    increment2 = (Math.random() * 3) + 1;
-    increment3 = (Math.random() * 3) + 1;
-    increment4 = (Math.random() * 3) + 1;
 
-    // build arrays of children in global scope so can use elsewhere
-    // and then can shuffle
+    // imgs[], captions[] return 2d array of htmlcollection objects
 
-    // click stop / start
+    imgcontainers = document.getElementsByClassName('img-container');
+    captioncontainers = document.getElementsByClassName('caption-container');
+    for (var i = 0; i < imgcontainers.length; i++)
+        imgs[i] = imgcontainers[i].children;        
+    for (var i = 0; i < captioncontainers.length; i++)
+        captions[i] = captioncontainers[i].children;
 
-    // controls = document.getElementById("controls");
-    // control = document.getElementById("control");
-    
+    // shuffle(imgs);       
+
     window.addEventListener('click', function() {
-    // controls.addEventListener('click', function() {
         if (interval) {
-            clearInterval(interval);
+            for (var i = 0; i < captioncontainers.length; i++)
+                captioncontainers[i].style.display = "block";
+            for (var i = 0; i < timers.length; i++)
+                clearTimeout(timers[i]);
             interval = null;
-            // control.src = "media/svg/start.svg";
         }
         else {
-            interval = setInterval(function() { updateall(1); }, speed);
-            // control.src = "media/svg/stop.svg";
+            for (var i = 0; i < captioncontainers.length; i++)
+                captioncontainers[i].style.display = "none";
+            interval = true;
+            updateall();
         }
     });
 
-    /* debug
-    controls.addEventListener('click', function() {
-        updateall(1);
-    });
-    */
+    updateall();
 }
 init();
 
 
 // update
 
-function update(thisstack, thisindex) {
+function update(thisstack, thisindex, thisspeed) {
 
-    // first child is not an img
-    // should fix this more robustly
-    // check if img always
-    // also previndex goes to to 0 which is an error ** fix **
-
-    var previndex = (thisindex - 1) % imgcontainers[thisstack].children.length;
-    if (previndex == 0) previndex = imgcontainers[thisstack].children.length - 1;
-    var img = imgcontainers[thisstack].children[thisindex % imgcontainers[thisstack].children.length];
-    var previmg = imgcontainers[thisstack].children[previndex];
-    if (debug) {
-        console.log(imgcontainers[thisstack].children.length);
-        console.log("previndex = " + previndex);
-        console.log("thisindex = " + thisindex);
-        // console.log("previmg.src = " + previmg.src);
-        // console.log("img.src = " + img.src);
-        console.log("+ + +");
+    var previndex = (thisindex - 1) % imgs[thisstack].length;
+    if (previndex == 0) previndex = imgs[thisstack].length - 1;
+    var thisimg = imgs[thisstack][thisindex];
+    var previmg = imgs[thisstack][previndex];        
+    var thiscaption = captions[thisstack][thisindex-1];
+    var prevcaption = captions[thisstack][previndex-1];        
+    thisimg.style.display = "block";
+    thiscaption.style.display = "block";
+    if (previndex != thisindex) {
+        previmg.style.display = "none";
+        prevcaption.style.display = "none";
     }
-    previmg.style.visibility = "hidden";
-    img.style.visibility = "visible";
-    thisindex++;    
-    thisindex %= imgcontainers[thisstack].children.length;
-    if (thisindex == 0) thisindex++;        // first child is not an img
-                                            // should fix this more robustly
-                                            // check if img always
+    thisindex++;
+    thisindex %= imgs[thisstack].length;
+    if (thisindex == 0) thisindex++;        
+    timers[thisstack] = setTimeout(function(){ update(thisstack, thisindex, thisspeed); }, thisspeed);
+    if (debug) debuglog(imgs[thisstack].length + " : " + thisindex + " / " + previndex);
     return thisindex;
 }
 
+function updateall() {
 
-// updateincrementfade
-
-function updateincrementfade(thisstack, thisindex, thisincrement) {
-
-    // first child is not an img
-    // should fix this more robustly
-    // check if img always
-    // also previndex goes to to 0 which is an error ** fix **
-
-    var previndex = (thisindex - 1) % imgcontainers[thisstack].children.length;
-    if (previndex == 0) previndex = imgcontainers[thisstack].children.length - 1;
-    if (debug) {
-        console.log(imgcontainers[thisstack].children.length);
-        console.log("previndex = " + previndex);
-        console.log("thisindex = " + thisindex);
-    }
-    var img = imgcontainers[thisstack].children[thisindex % imgcontainers[thisstack].children.length];
-    var previmg = imgcontainers[thisstack].children[previndex];
-    // img.style.opacity = parseFloat(img.style.opacity) + thisincrement;
-    img.style.opacity = 1.0;
-    // previmg.style.opacity = parseFloat(previmg.style.opacity) - thisincrement;
-    previmg.style.opacity = 0.0;
-    if (parseFloat(img.style.opacity) >= 1.0) 
-        thisindex++;    
-    thisindex %= imgcontainers[thisstack].children.length;
-    if (thisindex == 0) thisindex++;        // first child is not an img
-                                            // should fix this more robustly
-                                            // check if img always
-    return thisindex;
+        index0 = update(0, index0, 5000);
+        index1 = update(1, index1, 9000);
+        index2 = update(2, index2, 8000);
+        index3 = update(3, index3, 1000000);
 }
-
-
-// update all
-
-function updateall(thisincrement) {
-
-        index0 = update(0, index0);
-        index1 = update(1, index1);
-        index2 = update(2, index2);
-        index3 = update(3, index3);
-
-    /*
-    for (var i = 0; i < thumbs.length; i++) {    
-
-        // index0 = update(0, index0, thisincrement*increment1);
-        // index1 = update(1, index1, thisincrement*increment2);
-        // index2 = update(2, index2, thisincrement*increment3);
-        // index3 = update(3, index3, thisincrement*increment4);
-        // index0 = update(0, index0);
-        // index1 = update(1, index1);
-        // index2 = update(2, index2);
-        // index3 = update(3, index3);
-    }
-    // index++;
-    */
-}
-
-
-// set interval 
-
-// interval = setInterval(function() { updateall(0.0005); }, 60);
-// interval = setInterval(function() { updateall(0.1); }, 60);
-// interval = setInterval(function() { updateall(0.25); }, 60);
-// interval = setInterval(function() { updateall(0.1); }, 60);
-// interval = setInterval(function() { updateall(.1); }, 120);
-// interval = setInterval(function() { updateall(0.001); }, 1000);
-interval = setInterval(function() { updateall(1); }, speed);
 
 
 // utility
 
 function shuffle (array) {
-  var i = 0
-    , j = 0
-    , temp = null
 
-  for (i = array.length - 1; i > 0; i -= 1) {
-    j = Math.floor(Math.random() * (i + 1))
-    temp = array[i]
-    array[i] = array[j]
-    array[j] = temp
-  }
+    var i = 0, j = 0, temp = null
+    for (i = array.length - 1; i > 0; i -= 1) {
+        j = Math.floor(Math.random() * (i + 1))
+        temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+    }
 }
 
+function debuglog(thisdebugstring) {
 
-
-
-
-
-
-
-
+    console.log(thisdebugstring);
+    // console.log("+");
+}
 
 /*
-
-for (var i = 0; i < thumbs.length; i++) {
-    ( function () {
-        // ( closure ) -- retains state of local variables
-        var imgcontainer = imgcontainers[i];
-        var caption = captions[i];
-        var img = imgcontainer.children[1];          
-        var j = i;
-        
-        caption.addEventListener('click', function() {
-            index = j;
-            gallery = img;
-            var thisimgcontainer = this.previousElementSibling;
-            thisimgcontainer.style.display="block";
-            this.style.display="none";
-            this.parentElement.parentElement.className="";  // rm parent "transform"
-            if (fullscreen) {
-                screenfull.request(thisimgcontainer);
-            } else { 
-                imgcontainer.className = "img-container-fullwindow";
-                readdeviceorientation();
-            }
-        });
-        controlsnext.addEventListener('click', next); 
-        controlsprev.addEventListener('click', prev); 
-        controlsclose.addEventListener('click', function() {                
-            var thisimgcontainer = this.parentElement.parentElement; 
-            var thiscaption = thisimgcontainer.nextElementSibling;
-            thisimgcontainer.style.display="none";
-            thiscaption.style.display="block";
-            this.parentElement.parentElement.parentElement.parentElement.className="centered";
-            if (fullscreen)
-                screenfull.exit();
-            debuglog();
-        });
-        imgs.push(img);
-    }());
-}
-
-
-// navigation 
-
-function next() {
-    index++;
-    if (index >= imgs.length)
-        index = 0;
-    gallery.src = imgs[index].src;
-    gallery.className = imgs[index].className;
-    debuglog();
-}
-
-function prev() {
-    index--;
-    if (index < 0)
-        index = imgs.length - 1;
-    gallery.src = imgs[index].src;
-    gallery.className = imgs[index].className;
-    debuglog();
-}
-
-document.onkeydown = function(e) {
-    if(screenfull.isFullscreen || fullwindow) {
-        e = e || window.event;
-        switch(e.which || e.keyCode) {
-            case 37: // left
-                prev();
-                break;
-            case 39: // right
-                next();
-                break;
-            case 27: // esc
-                var thisimgcontainer = gallery.parentElement;
-                var thiscaption = thisimgcontainer.nextElementSibling;
-                thisimgcontainer.style.display="none";
-                thisimgcontainer.parentElement.parentElement.className="centered";
-                thiscaption.style.display="block";   
-                debuglog();
-                break;
-            default: return; // exit this handler for other keys
-        }
-        e.preventDefault();
-     }
-}
-
-if (screenfull.enabled) {
-    document.addEventListener(screenfull.raw.fullscreenchange, function() {
-        if (!screenfull.isFullscreen) {
-            resetthumbnail();
-        }
-    });
-}
-
 // iOS device orientation
 
 function readdeviceorientation() {
@@ -317,30 +134,7 @@ function readdeviceorientation() {
 }
 
 window.onorientationchange = readdeviceorientation;
-
-// utility
-
-function resetthumbnail() {
-    for (var i = imgcontainers.length-1; i >= 0; i--)
-        imgcontainers[i].style.display="none";
-    for (var i = captions.length-1; i >= 0; i--)
-        captions[i].style.display="block";
-    index = -1;
-    gallery = null;
-}
-
-
 */
 
 
-function debuglog() {
-    if (debug) {
-        // console.log("index = " + index + " / " + imgs.length);
-        console.log("thumbs = " + thumbs + " / " + thumbs.length);
-        // console.log("img = " + img);   
-        // console.log("img.src = " + img.src);   
-        // console.log("thisimgcontainer.innerHTML = " + thisimgcontainer.innerHTML);   
-        console.log("+");
-    }
-}
 

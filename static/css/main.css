@@ -95,6 +95,14 @@ a:active {
     display: inline-block;
 }
 
+.thumb-seven {
+    position: relative;
+    width: 18%;
+    margin: 0 5% 0 0;
+    vertical-align: top;
+    display: inline-block;
+}
+
 .img-container {
     position: absolute;
     width: 100%;
@@ -103,20 +111,31 @@ a:active {
 .img-container img {
     vertical-align: top;
     animation-name: fadein;
-    animation-duration: 3s; 
+    animation-duration: 2s; 
+}
+
+.img-container-seven {
+    position: absolute;
+    width: 100%;
 }
 
 .stack {
+    display: none;
+}
+
+.caption-container {
+    position: absolute;
+    top: 300px;
+    width: 90%;
+    cursor: pointer;
+    display: none;
 }
 
 .caption {
-    position: absolute;
-    top: 150px;
-    width: 100%;
     font-size: 8pt;
     line-height: 9pt;
 	text-align: left;
-    cursor: pointer;
+    display: none;
 }
 
 .square {
