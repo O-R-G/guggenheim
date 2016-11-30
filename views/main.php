@@ -12,21 +12,28 @@
         ?><div class="img-container">
             <div class="square"></div><?
             $imgdir = "media/" . $number . "/";
-            $txtdir = "media/captions/";
+            $txtdir = "media/txt/captions/";
             chdir($imgdir);      
             $images = glob("*.jpg");
             chdir("../../");
+            $i = 0;
             foreach($images as $image) {
                 $url = $imgdir . $image;        // getimagesize requires relative url
                 $size = getimagesize($url);
                 $wide_tall = (($size[0] >= $size[1]) ? wide : tall);
                 echo "<img src='" . $url . "' class='stack centered " . $wide_tall ."'>";
-                // $caption = file_get_contents("media/txt/" . pathinfo($image, PATHINFO_FILENAME));
-                // echo "<div class='caption centered'>" . $caption . "</div>";
+                $captionslong[$i] = file_get_contents($txtdir . "long/" . pathinfo($image, PATHINFO_FILENAME));
+                $captionsshort[$i] = file_get_contents($txtdir . "short/" . pathinfo($image, PATHINFO_FILENAME));
+                $i++;
             }
         ?></div>
-        <div class="caption">
-        </div>
+        <div class="caption"><?
+            $i = 0;
+            foreach($captionsshort as $captionshort) {
+                echo "<div class='caption'>" . $captionshort . "</div>";
+                $i++;
+            }
+        ?></div>
     </div>
 
     <div id="zero" class="thumb"><? 
@@ -34,21 +41,28 @@
         ?><div class="img-container">
             <div class="square"></div><?
             $imgdir = "media/" . $number . "/";
-            $txtdir = "media/captions/";
+            $txtdir = "media/txt/captions/";
             chdir($imgdir);      
             $images = glob("*.jpg");
             chdir("../../");
+            $i = 0;
             foreach($images as $image) {
                 $url = $imgdir . $image;        // getimagesize requires relative url
                 $size = getimagesize($url);
                 $wide_tall = (($size[0] >= $size[1]) ? wide : tall);
                 echo "<img src='" . $url . "' class='stack centered " . $wide_tall ."'>";
-                // $caption = file_get_contents("media/txt/" . pathinfo($image, PATHINFO_FILENAME));
-                // echo "<div class='caption centered'>" . $caption . "</div>";
+                $captionslong[$i] = file_get_contents($txtdir . "long/" . pathinfo($image, PATHINFO_FILENAME));
+                $captionsshort[$i] = file_get_contents($txtdir . "short/" . pathinfo($image, PATHINFO_FILENAME));
+                $i++;
             }
         ?></div>
-        <div class="caption">
-        </div>
+        <div class="caption"><?
+            $i = 0;
+            foreach($captionsshort as $captionshort) {
+                echo "<div class='caption'>" . $captionshort . "</div>";
+                $i++;
+            }
+        ?></div>
     </div>
 
     <div id="one" class="thumb"><? 
@@ -56,21 +70,28 @@
         ?><div class="img-container">
             <div class="square"></div><?
             $imgdir = "media/" . $number . "/";
-            $txtdir = "media/captions/";
+            $txtdir = "media/txt/captions/";
             chdir($imgdir);      
             $images = glob("*.jpg");
             chdir("../../");
+            $i = 0;
             foreach($images as $image) {
                 $url = $imgdir . $image;        // getimagesize requires relative url
                 $size = getimagesize($url);
                 $wide_tall = (($size[0] >= $size[1]) ? wide : tall);
                 echo "<img src='" . $url . "' class='stack centered " . $wide_tall ."'>";
-                // $caption = file_get_contents("media/txt/" . pathinfo($image, PATHINFO_FILENAME));
-                // echo "<div class='caption centered'>" . $caption . "</div>";
+                $captionslong[$i] = file_get_contents($txtdir . "long/" . pathinfo($image, PATHINFO_FILENAME));
+                $captionsshort[$i] = file_get_contents($txtdir . "short/" . pathinfo($image, PATHINFO_FILENAME));
+                $i++;
             }
         ?></div>
-        <div class="caption">
-        </div>
+        <div class="caption"><?
+            $i = 0;
+            foreach($captionsshort as $captionshort) {
+                echo "<div class='caption'>" . $captionshort . "</div>";
+                $i++;
+            }
+        ?></div>
     </div>
 
     <div id="seven" class="thumb"><? 

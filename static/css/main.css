@@ -110,6 +110,9 @@ a:active {
 }
 
 .caption {
+    position: absolute;
+    top: 150px;
+    width: 100%;
     font-size: 8pt;
     line-height: 9pt;
 	text-align: left;
