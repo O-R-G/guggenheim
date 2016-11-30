@@ -12,11 +12,7 @@ var imgcontainers = [];
 var captioncontainers = [];
 var imgs = [];
 var captions = [];
-var index;
-var index0 = 1;
-var index1 = 1;
-var index2 = 1;
-var index3 = 1;
+var index = [];
 var o_src;
 var gallery;
 var fullscreen;
@@ -35,12 +31,14 @@ function init() {
 
     imgcontainers = document.getElementsByClassName('img-container');
     captioncontainers = document.getElementsByClassName('caption-container');
-    for (var i = 0; i < imgcontainers.length; i++)
-        imgs[i] = imgcontainers[i].children;        
+    for (var i = 0; i < imgcontainers.length; i++) {
+        imgs[i] = imgcontainers[i].children;
+        index[i] = 1;   // skip .square div
+    }
     for (var i = 0; i < captioncontainers.length; i++)
         captions[i] = captioncontainers[i].children;
 
-    // shuffle(imgs);       
+    // shuffle(imgs);
 
     window.onclick = function(e) {
         if (running) {
@@ -91,10 +89,10 @@ function update(thisstack, thisindex, thisspeed) {
 
 function updateall() {
 
-        index0 = update(0, index0, 5000);
-        index1 = update(1, index1, 9000);
-        index2 = update(2, index2, 8000);
-        index3 = update(3, index3, 10000000000000000000000);
+        index[0] = update(0, index[0], 5000);
+        index[1] = update(1, index[1], 9000);
+        index[2] = update(2, index[2], 8000);
+        index[3] = update(3, index[3], 10000000000000000000000);
         running = true;
 }
 
