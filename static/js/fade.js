@@ -23,9 +23,9 @@ var fullscreen;
 var fullwindow;
 var speed = 500;
 var timers = [];  // timer ids
-var interval = true;
+var running;
 var mobile = false;
-var debug = true;
+var debug = false;
 
 // init
 
@@ -42,21 +42,23 @@ function init() {
 
     // shuffle(imgs);       
 
-    window.addEventListener('click', function() {
-        if (interval) {
+    window.onclick = function(e) {
+        if (running) {
             for (var i = 0; i < captioncontainers.length; i++)
                 captioncontainers[i].style.display = "block";
             for (var i = 0; i < timers.length; i++)
                 clearTimeout(timers[i]);
-            interval = null;
+            running = null;
         }
         else {
             for (var i = 0; i < captioncontainers.length; i++)
                 captioncontainers[i].style.display = "none";
-            interval = true;
             updateall();
         }
-    });
+        // e.preventDefault(); 
+        // e.stopPropagation();
+        if (debug) debuglog(e); 
+    };
 
     updateall();
 }
@@ -92,7 +94,8 @@ function updateall() {
         index0 = update(0, index0, 5000);
         index1 = update(1, index1, 9000);
         index2 = update(2, index2, 8000);
-        index3 = update(3, index3, 1000000);
+        index3 = update(3, index3, 10000000000000000000000);
+        running = true;
 }
 
 
@@ -135,6 +138,3 @@ function readdeviceorientation() {
 
 window.onorientationchange = readdeviceorientation;
 */
-
-
-
