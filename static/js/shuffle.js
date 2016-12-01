@@ -16,7 +16,7 @@ var o_src;
 var gallery;
 var fullscreen;
 var fullwindow;
-var speed = 500;
+var speed = 1500;
 var timers = [];  // timer ids
 var running;
 var mobile = false;
@@ -119,10 +119,10 @@ function updaterandom(thisstack, thisindex, thisspeed) {
 function updateall() {
 
         // index[0] = updaterandom(0, index[0], 5000);
-        index[0] = update(0, index[0], 5000);
-        index[1] = update(1, index[1], 9000);
-        index[2] = update(2, index[2], 8000);
-        index[3] = update(3, index[3], 10000000000000000000000);
+        index[0] = update(0, index[0], speed * 5);
+        index[1] = update(1, index[1], speed * 9);
+        index[2] = update(2, index[2], speed * 8);
+        index[3] = update(3, index[3], speed * 10000000000000000000000);
         running = true;
 }
 
