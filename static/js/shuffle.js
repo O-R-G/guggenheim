@@ -33,7 +33,8 @@ function init() {
     captioncontainers = document.getElementsByClassName('caption-container');
     for (var i = 0; i < imgcontainers.length; i++) {
         imgs[i] = imgcontainers[i].children;
-        index[i] = 1;   // skip .square div
+        // index[i] = 1;   // skip .square div
+        index[i] = Math.floor((Math.random() * (imgs[i].length-1)) + 1);    // start with random img
     }
     for (var i = 0; i < captioncontainers.length; i++)
         captions[i] = captioncontainers[i].children;
@@ -118,6 +119,7 @@ function updaterandom(thisstack, thisindex, thisspeed) {
 
 function updateall() {
 
+        index[3] = 1;   // hack
         // index[0] = updaterandom(0, index[0], 5000);
         index[0] = update(0, index[0], speed * 5);
         index[1] = update(1, index[1], speed * 9);
