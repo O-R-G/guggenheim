@@ -27,7 +27,8 @@ var debug = false;
 
 function init() {
 
-    // imgs[], captions[] return 2d array of htmlcollection objects
+    // get imgs[], captions[] 
+    // returns 2d array of htmlcollection objects
 
     imgcontainers = document.getElementsByClassName('img-container');
     captioncontainers = document.getElementsByClassName('caption-container');
@@ -37,7 +38,6 @@ function init() {
     }
     for (var i = 0; i < captioncontainers.length; i++)
         captions[i] = captioncontainers[i].children;
-
     // shuffle(imgs);
 
     window.onclick = function(e) {

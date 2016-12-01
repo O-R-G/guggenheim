@@ -27,8 +27,7 @@ x captions css animate fade in
 + establish closures
 x subliminal message?
 + speed, varied speeds
-- click cancel bubble / stop propogation
-    http://www.quirksmode.org/js/events_order.html
++ click cancel bubble / stop propogation
 / captions css (relative? margin?)
 / credits
 - sound?
