@@ -1,6 +1,5 @@
-// get all children imgs
-// fade opacity between
-// based on modernart gallery.js
+// ** shuffle **
+// shuffle and display child divs in stack
 // requires html/css:
 //  .thumb
 //    .img-container
@@ -21,7 +20,7 @@ var speed = 500;
 var timers = [];  // timer ids
 var running;
 var mobile = false;
-var debug = false;
+var debug = true;
 
 // init
 
@@ -47,6 +46,7 @@ function init() {
             for (var i = 0; i < timers.length; i++)
                 clearTimeout(timers[i]);
             running = null;
+            document.getElementById('credits').style.display='none';        // ** fix **
         }
         else {
             for (var i = 0; i < captioncontainers.length; i++)
@@ -87,8 +87,38 @@ function update(thisstack, thisindex, thisspeed) {
     return thisindex;
 }
 
+function updaterandom(thisstack, thisindex, thisspeed) {
+
+    var nextindex = Math.floor((Math.random() * imgs[thisstack].length) + 1);   
+    var previndex = thisindex % imgs[thisstack].length;
+
+    if (previndex == 0) previndex = imgs[thisstack].length - 1;     // ?
+    var thisimg = imgs[thisstack][thisindex];
+    var previmg = imgs[thisstack][previndex];        
+    var thiscaption = captions[thisstack][thisindex-1];
+    var prevcaption = captions[thisstack][previndex-1];        
+    thisimg.style.display = "block";
+    thiscaption.style.display = "block";
+    if (previndex != thisindex) {
+        previmg.style.display = "none";
+        prevcaption.style.display = "none";
+    }
+    // thisindex++;
+    thisindex = nextindex;
+    thisindex %= imgs[thisstack].length;
+    // if (thisindex == 0) thisindex++;        
+    if (debug) debuglog("nextindex : " + nextindex);
+    if (debug) debuglog("previndex : " + previndex);
+    if (debug) debuglog("thisindex : " + thisindex);
+
+    timers[thisstack] = setTimeout(function(){ updaterandom(thisstack, thisindex, thisspeed); }, thisspeed);
+    if (debug) debuglog(imgs[thisstack].length + " : " + thisindex + " / " + previndex);
+    return thisindex;
+}
+
 function updateall() {
 
+        // index[0] = updaterandom(0, index[0], 5000);
         index[0] = update(0, index[0], 5000);
         index[1] = update(1, index[1], 9000);
         index[2] = update(2, index[2], 8000);

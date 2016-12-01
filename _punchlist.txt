@@ -28,9 +28,11 @@ x captions css animate fade in
 x subliminal message?
 + speed, varied speeds
 + click cancel bubble / stop propogation
-/ captions css (relative? margin?)
-/ credits
++ credits
++ "footer" privacy statement, etc.
++ short captions correct
+/ captions css
+/ credits css
+/ shuffle arrays
+  updaterandom() ** in process **
 - sound?
-- "footer" privacy statement, etc.
-- shuffle arrays
-    http://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order

@@ -94,6 +94,25 @@ a:active {
     */
 }
 
+#credits {
+    position: absolute;
+    top: 410px;
+    left: 50px;
+    width: 80%;
+    font-size: 8pt;
+    line-height: 9pt;
+    background-color: #FFF;
+    display: none;
+}
+
+#footer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 8pt;
+    line-height: 9pt;
+}
+
 
 /*-----------------------------------------------
   classes
@@ -178,6 +197,11 @@ a:active {
 .wide {
     height: auto;
     width: 100%;
+}
+
+.block {
+    padding-right: 5px;
+    display: inline-block;
 }
 
 .hidden {

@@ -5,6 +5,10 @@
         .img
 -->
 
+<div id="logo">
+    <img src="media/svg/logo.svg" id="logo-svg">
+</div>    
+
 <div id="thumb-container">
 
     <div id="two" class="thumb"><? 
@@ -30,7 +34,7 @@
         <div class="caption-container"><?
             $i = 0;
             foreach($captionsshort as $captionshort) {
-                echo "<div class='caption'>" . $captionshort . "</div>";
+                echo "<div class='caption'>" . nl2br($captionshort) . "</div>";
                 $i++;
             }
         ?></div>
@@ -59,7 +63,7 @@
         <div class="caption-container"><?
             $i = 0;
             foreach($captionsshort as $captionshort) {
-                echo "<div class='caption'>" . $captionshort . "</div>";
+                echo "<div class='caption'>" . nl2br($captionshort) . "</div>";
                 $i++;
             }
         ?></div>
@@ -88,7 +92,7 @@
         <div class="caption-container"><?
             $i = 0;
             foreach($captionsshort as $captionshort) {
-                echo "<div class='caption'>" . $captionshort . "</div>";
+                echo "<div class='caption'>" . nl2br($captionshort) . "</div>";
                 $i++;
             }
         ?></div>
@@ -101,20 +105,29 @@
             <img src="media/png/<? echo $number; ?>.png" class="stack centered wide"><?
         ?></div>
        <div class="caption-container">
-            <div class="caption"><a href="">Credits —</a></div>
+            <div class="caption"><a href="javascript: document.getElementById('credits').style.display='inline-block';">Credits +</a></div>
         </div>
     </div>
 
 </div>
 
-    <div id="logo">
-        <img src="media/svg/logo.svg" id="logo-svg">
-    </div>    
-   
-    <!-- <div id="controls">
-        <img src="media/svg/stop.svg" id="control">
-    </div> -->
+<div id="credits" class="block"><? 
+    $txtdir = "media/txt/captions/long/";
+    chdir($txtdir);
+    $txts = glob("*");
+    chdir("../../../../");
+    $i = 0;
+    foreach($txts as $txt) {
+        $captionslong[$i] = file_get_contents($txtdir . $txt);
+        echo "<div class='block'>" . $captionslong[$i] . "</div>";
+        $i++;
+    }
+?></div>
+    
+<!-- <div id="controls">
+    <img src="media/svg/stop.svg" id="control">
+</div> -->
 
-<script type="text/javascript" src="<? echo $host ?>/static/js/fade.js"></script>
+<script type="text/javascript" src="<? echo $host ?>/static/js/shuffle.js"></script>
 
             
