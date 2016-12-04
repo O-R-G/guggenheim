@@ -32,9 +32,9 @@ x subliminal message?
 + "footer" privacy statement, etc.
 + short captions correct
 x sound?
-- verlag
-- rhythm
++ verlag
 - layout adjusts
+- rhythm
 - mobile
 / shuffle arrays
   updaterandom() ** in process **
