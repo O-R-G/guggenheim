@@ -43,15 +43,15 @@ x sound?
 + footer content align to Guggenheim logo
 + credits full justify
 + credits should not cross over footer
-
-- handlers
-when credits is clicked, captions should remain visible and 'Credits -‘
-should appear. Clicking anywhere closes credits and captions and restarts
-rotation. 
++ handler logic
+  when credits is clicked, captions should remain visible and 'Credits -‘
+  clicking anywhere closes credits and captions and restarts
 
 - layout
   width debug
+- captions css
 
 - mobile
-/ captions css
+- add speed options
 / credits css
+

@@ -27,6 +27,7 @@ function init() {
 
     // get imgs[], captions[] 
     // (returns 2d arrays of htmlcollection objects)
+
     imgcontainers = document.getElementsByClassName('img-container');
     captioncontainers = document.getElementsByClassName('caption-container');
     for (var i = 0; i < imgcontainers.length; i++) {
@@ -35,33 +36,51 @@ function init() {
     }
     for (var i = 0; i < captioncontainers.length; i++)
         captions[i] = captioncontainers[i].children;
+    var numberofstacks = imgcontainers.length;
+    var updatenumberofstacks = imgcontainers.length-1;
 
     // set handlers
-    window.onclick = function(e) {
+
+    var creditsbtn = document.getElementById("credits-btn");
+    creditsbtn.addEventListener("click", function(event) {
+        if (creditsbtn.innerHTML == "Credits +") {
+            creditsbtn.innerHTML = "Credits –";
+            document.getElementById('credits').style.display='inline-block';
+        } else {
+            creditsbtn.innerHTML = "Credits +";
+            document.getElementById('credits').style.display='none';
+        } 
+        event.stopImmediatePropagation();
+    });
+
+    window.addEventListener("click", function(event) {
         if (running) {
             for (var i = 0; i < captioncontainers.length; i++)
-                captioncontainers[i].style.display = "block";
+                captioncontainers[i].style.display = "block";                
             for (var i = 0; i < timers.length; i++)
                 clearTimeout(timers[i]);
+            if (interval) clearInterval(interval);
             running = null;
-            document.getElementById('credits').style.display='none';        // ** fix **
         }
         else {
             for (var i = 0; i < captioncontainers.length; i++)
                 captioncontainers[i].style.display = "none";
+            interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
             updateall();
         }
+        document.getElementById('credits').style.display='none';
+        creditsbtn.innerHTML = "Credits +";
         if (debug) debuglog(e); 
-    };
+    });
 
     // display all, start updates
-    var numberofstacks = imgcontainers.length;
-    var updatenumberofstacks = imgcontainers.length-1;
+
     for (var i = 0; i < numberofstacks; i++) {
             index[i] = update(i, index[i], speed, false);
     }
     interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
     // updateallatdifferentspeeds(updatenumberofstacks);
+    running = true;
 }
 init();
 
