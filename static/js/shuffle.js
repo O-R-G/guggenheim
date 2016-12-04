@@ -13,33 +13,30 @@ var imgs = [];
 var captions = [];
 var index = [];
 var o_src;
-var gallery;
-var fullscreen;
-var fullwindow;
 var speed = 1500;
-var timers = [];  // timer ids
+var probability = 1/3;
+var timers = [];    // settimeout ids
+var interval;       // setinterval id
 var running;
 var mobile = false;
-var debug = true;
+var debug = false;
 
 // init
 
 function init() {
 
     // get imgs[], captions[] 
-    // returns 2d array of htmlcollection objects
-
+    // (returns 2d arrays of htmlcollection objects)
     imgcontainers = document.getElementsByClassName('img-container');
     captioncontainers = document.getElementsByClassName('caption-container');
     for (var i = 0; i < imgcontainers.length; i++) {
         imgs[i] = imgcontainers[i].children;
-        // index[i] = 1;   // skip .square div
-        index[i] = Math.floor((Math.random() * (imgs[i].length-1)) + 1);    // start with random img
+        index[i] = Math.floor((Math.random() * (imgs[i].length-1)) + 1);    // random img
     }
     for (var i = 0; i < captioncontainers.length; i++)
         captions[i] = captioncontainers[i].children;
-    // shuffle(imgs);
 
+    // set handlers
     window.onclick = function(e) {
         if (running) {
             for (var i = 0; i < captioncontainers.length; i++)
@@ -54,19 +51,24 @@ function init() {
                 captioncontainers[i].style.display = "none";
             updateall();
         }
-        // e.preventDefault(); 
-        // e.stopPropagation();
         if (debug) debuglog(e); 
     };
 
-    updateall();
+    // display all, start updates
+    var numberofstacks = imgcontainers.length;
+    var updatenumberofstacks = imgcontainers.length-1;
+    for (var i = 0; i < numberofstacks; i++) {
+            index[i] = update(i, index[i], speed, false);
+    }
+    interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
+    // updateallatdifferentspeeds(updatenumberofstacks);
 }
 init();
 
 
 // update
 
-function update(thisstack, thisindex, thisspeed) {
+function update(thisstack, thisindex, thisspeed, recursive) {
 
     var previndex = (thisindex - 1) % imgs[thisstack].length;
     if (previndex == 0) previndex = imgs[thisstack].length - 1;
@@ -82,65 +84,54 @@ function update(thisstack, thisindex, thisspeed) {
     }
     thisindex++;
     thisindex %= imgs[thisstack].length;
-    if (thisindex == 0) thisindex++;        
-    timers[thisstack] = setTimeout(function(){ update(thisstack, thisindex, thisspeed); }, thisspeed);
-    if (debug) debuglog(imgs[thisstack].length + " : " + thisindex + " / " + previndex);
-    return thisindex;
-}
-
-function updaterandom(thisstack, thisindex, thisspeed) {
-
-    var nextindex = Math.floor((Math.random() * imgs[thisstack].length) + 1);   
-    var previndex = thisindex % imgs[thisstack].length;
-
-    if (previndex == 0) previndex = imgs[thisstack].length - 1;     // ?
-    var thisimg = imgs[thisstack][thisindex];
-    var previmg = imgs[thisstack][previndex];        
-    var thiscaption = captions[thisstack][thisindex-1];
-    var prevcaption = captions[thisstack][previndex-1];        
-    thisimg.style.display = "block";
-    thiscaption.style.display = "block";
-    if (previndex != thisindex) {
-        previmg.style.display = "none";
-        prevcaption.style.display = "none";
+    if (thisindex == 0) thisindex++;
+    if (recursive) {
+        if (interval) clearInterval(interval);
+        timers[thisstack] = setTimeout(function(){ update(thisstack, thisindex, thisspeed, true); }, thisspeed);
     }
-    // thisindex++;
-    thisindex = nextindex;
-    thisindex %= imgs[thisstack].length;
-    // if (thisindex == 0) thisindex++;        
-    if (debug) debuglog("nextindex : " + nextindex);
-    if (debug) debuglog("previndex : " + previndex);
-    if (debug) debuglog("thisindex : " + thisindex);
-
-    timers[thisstack] = setTimeout(function(){ updaterandom(thisstack, thisindex, thisspeed); }, thisspeed);
     if (debug) debuglog(imgs[thisstack].length + " : " + thisindex + " / " + previndex);
     return thisindex;
 }
 
-function updateall() {
+function updateall(numberofstacks) {
 
-        index[3] = 1;   // hack
-        // index[0] = updaterandom(0, index[0], 5000);
-        index[0] = update(0, index[0], speed * 5);
-        index[1] = update(1, index[1], speed * 9);
-        index[2] = update(2, index[2], speed * 8);
-        index[3] = update(3, index[3], speed * 10000000000000000000000);
-        running = true;
+    // change each image 33% of the time
+    // enforce at least one changed each cycle
+    var updated = false;
+    for (var i = 0; i < numberofstacks; i++) {
+        var updatestack = Math.random();
+        if (updatestack <= probability) {
+            index[i] = update(i, index[i], speed, false);
+            updated = true;
+        }
+        if (debug) debuglog(i + " : " + updatestack + " --> " + (updatestack <= probability));
+    }
+    if (!updated) {
+        var updatestack = Math.floor((Math.random() * 3));
+        index[updatestack] = update(updatestack, index[updatestack], speed);
+        updated = true;
+        if (debug) debuglog("nothing updated --" + updatestack);
+    } 
+    running = true;
+}
+
+function updateallatdifferentspeeds(numberofstacks) {
+
+    // change each at different speeds
+    // uses settimeout in place of setinterval
+    // update recursively
+    var updated = false;
+    for (var i = 0; i < numberofstacks; i++) {    
+        var thisspeed = Math.random();
+        index[i] = update(i, index[i], speed * thisspeed, true);
+        updated = true;
+        if (debug) debuglog(i + " : " + updatespeed + " / " + updated);
+    }
+    running = true;
 }
 
 
 // utility
-
-function shuffle (array) {
-
-    var i = 0, j = 0, temp = null
-    for (i = array.length - 1; i > 0; i -= 1) {
-        j = Math.floor(Math.random() * (i + 1))
-        temp = array[i]
-        array[i] = array[j]
-        array[j] = temp
-    }
-}
 
 function debuglog(thisdebugstring) {
 
@@ -148,12 +139,14 @@ function debuglog(thisdebugstring) {
     // console.log("+");
 }
 
+
 /*
 // iOS device orientation
 
 function readdeviceorientation() {
     var thisimgcontainer = gallery.parentElement;
-    if (Math.abs(window.orientation) === 90) {
+    if (
+        Math.abs(window.orientation) === 90) {
         thisimgcontainer.style.display="block";
         // document.getElementById("orientation").innerHTML = "LANDSCAPE";
     } else {

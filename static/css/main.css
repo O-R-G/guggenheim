@@ -41,12 +41,12 @@ a:visited {
 }
 
 a:hover {
-    border-bottom:2px solid #999;
+    border-bottom:1px solid #999;
 }
 
 a:active {
     color: #FFF;
-    border-bottom:2px solid black;
+    border-bottom:1px solid black;
 }
 
 
@@ -101,6 +101,8 @@ a:active {
     width: 88%;
     font-size: 8pt;
     line-height: 9pt;
+    text-align: justify;
+    /* text-justify: inter-word; */
     background-color: #FFF;
     display: none;
 }
@@ -108,9 +110,13 @@ a:active {
 #footer {
     position: fixed;
     bottom: 0px;
-    left: 10px;
+    left: 0px;
+    width: 100%;
+    padding-left: 50px;
+    padding-top: 10px;
     font-size: 8pt;
     line-height: 9pt;
+    background-color: #FFF;
 }
 
 
@@ -140,9 +146,10 @@ a:active {
 }
 
 .img-container img {
-    vertical-align: top;
-    animation-name: fadein;
-    animation-duration: 2s; 
+     vertical-align: top;
+    animation-name: fadein; 
+    /* animation-duration: 2s; */
+    animation-duration: .2s; 
 }
 
 .img-container-seven {
