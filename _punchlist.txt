@@ -31,8 +31,13 @@ x subliminal message?
 + credits
 + "footer" privacy statement, etc.
 + short captions correct
-/ captions css
-/ credits css
+x sound?
+- verlag
+- rhythm
+- layout adjusts
+- mobile
 / shuffle arrays
   updaterandom() ** in process **
-- sound?
+/ captions css
+/ credits css
+
