@@ -31,10 +31,41 @@ x subliminal message?
 + credits
 + "footer" privacy statement, etc.
 + short captions correct
+
 x sound?
 + verlag
-- layout adjusts
++ https://web.guggenheim.org/holiday/
+  u: rebay
+  p: 345admin
+- random write images in php (shuffle array there first!)
+
+- We find the movement too slow now. It felt about right in the previous version. We would
+prefer cuts to fades.
+
 - rhythm
+
+We think it is more like this ?^?^? red=change
+1 1 1 1 1 1 1 1 1 1 1 1 1
+2 2 2 2 2 2 2 2 2 2 2 2 2
+3 3 3 3 3 3 3 3 3 3 3 3 3
+Everything is changing on the same beat, but not all images change every
+time. Typically one or two will change; once in a blue moon perhaps all
+change simultalneously. (Happily, this will make the 60 or so images last a
+long time before any repeat.) It may be that an image must always change in
+order to realize that it has not stopped. Make sense?
+
+
+- layout
+
+Would prefer type in black; underlines need not be so heavy. Left align
+footer content with Guggenheim logo.
+When credits is clicked, captions should remain visible and 'Credits -?^?^?
+should appear. Clicking anywhere closes credits and captions and restarts
+rotation.
+Credits should not cross over footer.
+type full justify with hyphenation?
+
+
 - mobile
 / shuffle arrays
   updaterandom() ** in process **
