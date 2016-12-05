@@ -251,6 +251,7 @@ a:active {
 @media screen and (max-width: 500px) {
     #logo {
         margin-left: 20px;
+        width: 100px;
         /* display: none; */
     }
     #thumb-container {
