@@ -46,12 +46,12 @@ x sound?
 + handler logic
   when credits is clicked, captions should remain visible and 'Credits -‘
   clicking anywhere closes credits and captions and restarts
-
-- layout
++ credits css
++ layout
   width debug
-- captions css
-
-- mobile
-- add speed options
-/ credits css
-
+  captions css
++ match .pdf spacing
++ mobile vertical and horizontal
++ update() debug hiding images
++ ?speed=_____ query
+- factor main.php div writing function

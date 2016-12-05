@@ -12,8 +12,9 @@ var captioncontainers = [];
 var imgs = [];
 var captions = [];
 var index = [];
-var o_src;
-var speed = 1500;
+var speed;
+if (!speed) 
+    speed = 1000;
 var probability = 1/3;
 var timers = [];    // settimeout ids
 var interval;       // setinterval id
@@ -21,18 +22,25 @@ var running;
 var mobile = false;
 var debug = false;
 
+
 // init
 
 function init() {
 
-    // get imgs[], captions[] 
-    // (returns 2d arrays of htmlcollection objects)
+    // build imgs[], captions[] 2D arrays
 
+    var tmp = [];
     imgcontainers = document.getElementsByClassName('img-container');
     captioncontainers = document.getElementsByClassName('caption-container');
     for (var i = 0; i < imgcontainers.length; i++) {
-        imgs[i] = imgcontainers[i].children;
-        index[i] = Math.floor((Math.random() * (imgs[i].length-1)) + 1);    // random img
+        tmp[i] = imgcontainers[i].children;
+        var tmpimgs = [];            
+        for (var j = 0; j < imgcontainers[i].children.length; j++) {
+            if (tmp[i][j].tagName == "IMG")
+                tmpimgs.push(tmp[i][j]);
+        }
+        imgs[i] = tmpimgs;
+        index[i] = Math.floor((Math.random() * (imgs[i].length-2)) + 1);    // random img b/t 1 & max
     }
     for (var i = 0; i < captioncontainers.length; i++)
         captions[i] = captioncontainers[i].children;
@@ -75,14 +83,13 @@ function init() {
 
     // display all, start updates
 
-    for (var i = 0; i < numberofstacks; i++) {
-            index[i] = update(i, index[i], speed, false);
-    }
+    for (var i = 0; i < numberofstacks; i++)
+        index[i] = update(i, index[i], speed, false);
     interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
     // updateallatdifferentspeeds(updatenumberofstacks);
     running = true;
 }
-init();
+// init();
 
 
 // update
@@ -90,13 +97,14 @@ init();
 function update(thisstack, thisindex, thisspeed, recursive) {
 
     var previndex = (thisindex - 1) % imgs[thisstack].length;
-    if (previndex == 0) previndex = imgs[thisstack].length - 1;
+    if (previndex <= 0) previndex = imgs[thisstack].length - 1;
     var thisimg = imgs[thisstack][thisindex];
     var previmg = imgs[thisstack][previndex];        
-    var thiscaption = captions[thisstack][thisindex-1];
-    var prevcaption = captions[thisstack][previndex-1];        
+    var thiscaption = captions[thisstack][thisindex];
+    var prevcaption = captions[thisstack][previndex];
     thisimg.style.display = "block";
-    thiscaption.style.display = "block";
+    if (thiscaption)
+        thiscaption.style.display = "block";
     if (previndex != thisindex) {
         previmg.style.display = "none";
         prevcaption.style.display = "none";
@@ -116,6 +124,7 @@ function updateall(numberofstacks) {
 
     // change each image 33% of the time
     // enforce at least one changed each cycle
+
     var updated = false;
     for (var i = 0; i < numberofstacks; i++) {
         var updatestack = Math.random();
@@ -139,6 +148,7 @@ function updateallatdifferentspeeds(numberofstacks) {
     // change each at different speeds
     // uses settimeout in place of setinterval
     // update recursively
+
     var updated = false;
     for (var i = 0; i < numberofstacks; i++) {    
         var thisspeed = Math.random();
@@ -154,29 +164,6 @@ function updateallatdifferentspeeds(numberofstacks) {
 
 function debuglog(thisdebugstring) {
 
-    console.log(thisdebugstring);
     // console.log("+");
+    console.log(thisdebugstring);
 }
-
-
-/*
-// iOS device orientation
-
-function readdeviceorientation() {
-    var thisimgcontainer = gallery.parentElement;
-    if (
-        Math.abs(window.orientation) === 90) {
-        thisimgcontainer.style.display="block";
-        // document.getElementById("orientation").innerHTML = "LANDSCAPE";
-    } else {
-        // for the moment, show regular full window
-        // would like to instead prompt to rotate phone
-        // but perhaps for now this is best
-        // thisimgcontainer.style.display="none";
-        thisimgcontainer.style.display="block";
-        // document.getElementById("orientation").innerHTML = "PORTRAIT";
-    }
-}
-
-window.onorientationchange = readdeviceorientation;
-*/

@@ -5,13 +5,18 @@
         .img
 -->
 
+<?
+// ** todo ** factor div writing to function
+// in process main-dev.php
+?>
+
 <div id="logo">
     <img src="media/svg/logo.svg" id="logo-svg">
 </div>    
 
 <div id="thumb-container">
 
-    <div id="two" class="thumb"><? 
+    <div id="two" class="thumb"><?
         $number = "2"; 
         ?><div class="img-container">
             <div class="square"></div><?
@@ -109,6 +114,8 @@
         </div>
     </div>
 
+    <!-- see http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs -->
+    <span class="stretch"></span>
 </div>
 
 <div id="credits" class="block"><? 
@@ -128,6 +135,17 @@
     <img src="media/svg/stop.svg" id="control">
 </div> -->
 
-<script type="text/javascript" src="<? echo $host ?>/static/js/shuffle.js"></script>
+<script type="text/javascript" src="<? echo $host ?>/static/js/shuffle.js"></script><? 
 
+    // ** dev **
+    // get speed from query
+
+    $speed = $_GET["speed"];
+    if (!$speed)
+        $speed = 1000;
+
+?><script type="text/javascript">
+    var speed = <? echo $speed; ?>;
+    init();
+</script>
             
