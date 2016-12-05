@@ -61,7 +61,7 @@ a:active {
 #logo {
     position: fixed;
     top: 30px;
-    left: 50px;
+    margin-left: 50px;
     width: 150px;
 }
 
@@ -249,8 +249,17 @@ a:active {
 
 /* vertical phone */
 @media screen and (max-width: 500px) {
+    #logo {
+        margin-left: 20px;
+    }
     #thumb-container {
         top: 120px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #footer {
+        padding-left: 20px;
+        padding-right: 20px;    
     }
     .caption-container {
         top: 60px;
@@ -259,8 +268,17 @@ a:active {
 
 /* horizontal phone */
 @media screen and (max-height: 500px) {
+    #logo {
+        margin-left: 20px;
+    }
     #thumb-container {
         top: 120px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #footer {
+        padding-left: 20px;
+        padding-right: 20px;    
     }
     .caption-container {
         top: 20px;
