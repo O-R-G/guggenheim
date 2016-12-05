@@ -250,12 +250,12 @@ a:active {
 /* vertical phone */
 @media screen and (max-width: 500px) {
     #logo {
-        /* margin-left: 20px; */
-        display: none;
+        margin-left: 20px;
+        /* display: none; */
     }
     #thumb-container {
         /* top: 120px; */
-        top: 40px;
+        top: 100px;
         margin-left: 20px;
         margin-right: 20px;
     }
