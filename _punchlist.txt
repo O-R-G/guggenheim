@@ -55,3 +55,4 @@ x sound?
 + update() debug hiding images
 + ?speed=_____ query
 - factor main.php div writing function
+- mobile click window, document, body, etc
