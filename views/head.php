@@ -1,7 +1,7 @@
 <? 
 // $host = "http://dev.o-r-g.local/guggenheim";
 // $host = "http://dev.o-r-g.com/guggenheim";
-$host = "http://www.guggenheim.org/holiday";
+$host = "http://web.guggenheim.org/holiday";
 ?>
 
 <!DOCTYPE html>
