@@ -14,7 +14,7 @@ var captions = [];
 var index = [];
 var speed;
 if (!speed) 
-    speed = 1000;
+    speed = 1150;
 var probability = 1/3;
 var timers = [];    // settimeout ids
 var interval;       // setinterval id

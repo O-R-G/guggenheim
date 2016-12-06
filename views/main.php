@@ -37,10 +37,6 @@ function populate($thisnumber) {
 }
 ?>
 
-<div id="logo">
-    <img src="media/svg/logo.svg" id="logo-svg">
-</div>    
-
 <div id="thumb-container">
     <div id="two" class="thumb"><?
         $number = "2"; 
@@ -81,12 +77,13 @@ function populate($thisnumber) {
     }
 ?></div>
 
-<script type="text/javascript" src="<? echo $host ?>/static/js/shuffle.js"></script><? 
+<script type="text/javascript" src="<? echo $host ?>/static/js/shuffle.js"></script><?
+    /*
     $speed = $_GET["speed"];
     if (!$speed)
         $speed = 1000;
+    */
 ?><script type="text/javascript">
-    var speed = <? echo $speed; ?>;
+    // var speed = <? echo $speed; ?>;
     init();
 </script>
-            

@@ -55,6 +55,20 @@ x sound?
 + update() debug hiding images
 + ?speed=_____ query
 + factor main.php div writing function
++ replace pt with px in css
++ all type black
++ footer smaller, spacing fixed on mobile
++ rm ?speed=
+
+- credits hide/show glitch in old safari
+  (something similar in modernart, perhaps to do with display, margin, etc.)
+- review browsers in SOW
 - mobile click window, document, body, etc
 - .gitignore, git reset, HEAD etc.
   set $host in views/head.php
+
+- set initial images 
+- update all imgs, captions
+- captions w/italics
+
+- instagram

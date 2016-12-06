@@ -1,7 +1,7 @@
 <? 
-// $host = "http://dev.o-r-g.local/guggenheim";
+$host = "http://dev.o-r-g.local/guggenheim";
 // $host = "http://dev.o-r-g.com/guggenheim";
-$host = "http://web.guggenheim.org/holiday";
+// $host = "http://web.guggenheim.org/holiday";
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +15,9 @@ $host = "http://web.guggenheim.org/holiday";
         <!-- dev.o-r-g.com -->
 		<!-- <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/710324/6123172/css/fonts.css"/> -->
         <!-- www.guggenheim.org/holiday -->
-		<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/710324/624620/css/fonts.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/710324/624620/css/fonts.css"/> -->
 	</head>
 	<body>
+    <div id="logo">
+        <a href="http://www.guggenheim.org"><img src="media/svg/logo.svg" id="logo-svg"></a>
+    </div>
