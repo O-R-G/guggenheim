@@ -20,8 +20,8 @@ html, body {
     font-family: "Verlag A", "Verlag B", Helvetica, Arial, sans-serif;    
     font-style: noraml;
     font-weight: 400;
-    font-size: 10px;
-    line-height: 13px;
+    font-size: 12px;
+    line-height: 14px;
     background-color: #FFF;
     color: #000000;
 }
@@ -31,6 +31,11 @@ body {
 }
 
 img {
+}
+
+a, img {
+    border:none;
+    outline:none;
 }
 
 a {
