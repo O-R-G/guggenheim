@@ -58,7 +58,7 @@ function populate($thisnumber) {
         ?></div>
        <div class="caption-container">
             <!-- <div class="caption"><div id="credits-btn">Credits +</div></div> -->
-            <div class="caption"><div id="credits-btn">Credits -</div></div>
+            <div class="caption"><div id="credits-btn">Credits +</div></div>
         </div>
     </div>
     <!-- see http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs -->

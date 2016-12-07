@@ -62,6 +62,9 @@ x sound?
 
 - credits hide/show glitch in old safari
   (something similar in modernart, perhaps to do with display, margin, etc.)
+
+maybe include a margin? width 100% issue
+
 - mobile click window, document, body, etc
 - .gitignore, git reset, HEAD etc.
   set $host in views/head.php
