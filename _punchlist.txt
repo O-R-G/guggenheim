@@ -82,6 +82,8 @@ maybe include a margin? width 100% issue
 • Safari 9.0+ (Mac)
 • Firefox 47+ (Windows 7+/Mac)
 • Chrome 51+ (Windows 7+/Mac)
+• Android 5+
+• iOS 9.3+
 - Browser detection for unsupported browser 
   versions will display message that the browser is not supported 
   with basic holiday greeting. Guggenheim to provide such message
