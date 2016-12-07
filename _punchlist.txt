@@ -62,7 +62,6 @@ x sound?
 
 - credits hide/show glitch in old safari
   (something similar in modernart, perhaps to do with display, margin, etc.)
-- review browsers in SOW
 - mobile click window, document, body, etc
 - .gitignore, git reset, HEAD etc.
   set $host in views/head.php
@@ -72,3 +71,14 @@ x sound?
 - captions w/italics
 
 - instagram
+
+- Google Analytics code, UA-5676651-2 for the production site
+
+- review browsers in SOW
+- • Internet Explorer 11+ (Windows 7+)
+• Safari 9.0+ (Mac)
+• Firefox 47+ (Windows 7+/Mac)
+• Chrome 51+ (Windows 7+/Mac)
+- Browser detection for unsupported browser 
+  versions will display message that the browser is not supported 
+  with basic holiday greeting. Guggenheim to provide such message
