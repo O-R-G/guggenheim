@@ -57,7 +57,8 @@ function populate($thisnumber) {
             <img src="media/png/<? echo $number; ?>.png" class="stack centered wide"><?
         ?></div>
        <div class="caption-container">
-            <div class="caption"><div id="credits-btn">Credits +</div></div>
+            <!-- <div class="caption"><div id="credits-btn">Credits +</div></div> -->
+            <div class="caption"><div id="credits-btn">Credits -</div></div>
         </div>
     </div>
     <!-- see http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs -->
