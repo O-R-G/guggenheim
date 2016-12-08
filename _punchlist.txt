@@ -71,33 +71,21 @@ x mobile click window, document, body, etc.
 + add #fixed-container to force scrollbar safari 9.1
   use overflow:hidden; but still likely messes up in safari 9.1
 + body onload init()
-/ ajax (see servinglibrary.org/static/js/ajax.js
-  easy enough to implement
-
+x ajax (see servinglibrary.org/static/js/ajax.js)
 + https://www.browserstack.com/accounts/subscriptions
-
-/ Internet Explorer 11+ (Windows 7+)
-  scrollbar hide/show
-/ Firefox 47+ (Windows 7+)
-  scrollbar hide/show
-/ Chrome 51+ (Windows 7+)
-  scrollbar hide/show
-
++ Internet Explorer 11+ (Windows 7+)
++ Firefox 47+ (Windows 7+)
++ Chrome 51+ (Windows 7+)
 + Safari 9.0+ (Mac)
 + Firefox 47+ (Mac)
 + Chrome 51+ (Mac)
-
-/ iOS 9.3+
-  horizontal credits text size too big
-/ Android 5+
-  horizontal crops credits
-
++ iOS 9.3+
+  horizontal credits text size
++ Android 5+
 - Browser detection for unsupported browser 
   versions will display message that the browser is not supported 
   with basic holiday greeting. Guggenheim to provide such message.
   can do this if init does not fire . . .
-
-- instagram
-
+/ instagram
 - add cancel browserstack in ical
 - add o-r-g credit
