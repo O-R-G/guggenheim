@@ -32,7 +32,7 @@ function init() {
 
     // build imgs[], captions[] 2D arrays
 
-    if (debug) alert("loaded");
+    if (debug) alert("init");
 
     var tmp = [];
     imgcontainers = document.getElementsByClassName('img-container');
@@ -54,19 +54,41 @@ function init() {
         captions[i] = captioncontainers[i].children;
     var numberofstacks = imgcontainers.length;
     var updatenumberofstacks = imgcontainers.length-1;
+    
+    startup(numberofstacks, updatenumberofstacks, index, delay, speed);
+    running = true;
+}
 
-    // set handlers
+
+// update
+
+function startup(thisnumberofstacks, thisupdatenumberofstacks, thisindex, thisdelay, thisspeed) {
+
+    if (debug) alert("startup");
+
+    // display first four images, wait
+
+    for (var i = 0; i < thisnumberofstacks; i++)
+        thisindex[i] = update(i, thisindex[i], speed, false);
+
+    // set timeout to wait before starting animation
+    var delay = setTimeout(function(){ startanimation(thisupdatenumberofstacks, thisspeed); }, thisdelay);
+}
+
+function startanimation(thisupdatenumberofstacks, thisspeed) {
+
+    if (debug) alert("startanimation");
+
+    // add handlers
 
     var creditsbtn = document.getElementById("credits-btn");
     creditsbtn.addEventListener("click", function(event) {
         if (creditsbtn.innerHTML == "Credits +") {
             creditsbtn.innerHTML = "Credits –";
             document.body.style.overflow='scroll';
-            // document.getElementById('credits').style.visibility='visible';
             document.getElementById('credits').style.display='inline-block';
         } else {
             creditsbtn.innerHTML = "Credits +";
-            // document.getElementById('credits').style.visibility='hidden';
             document.getElementById('credits').style.display='none';
         } 
         event.stopImmediatePropagation();
@@ -87,36 +109,12 @@ function init() {
             interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
             updateall();
         }
-        // document.getElementById('credits').style.visibility='hidden';
         document.getElementById('credits').style.display='none';
         creditsbtn.innerHTML = "Credits +";
     });
 
-    
-    startup(numberofstacks, updatenumberofstacks, index, delay, speed);
-    running = true;
-}
-
-
-// update
-
-function startup(thisnumberofstacks, thisupdatenumberofstacks, thisindex, thisdelay, thisspeed) {
-
-    // display first four images, wait
-
-    if (debug) alert("startup");
-    for (var i = 0; i < thisnumberofstacks; i++)
-        thisindex[i] = update(i, thisindex[i], speed, false);
-
-    // set timeout to wait before starting animation
-    var delay = setTimeout(function(){ startanimation(thisupdatenumberofstacks, thisspeed); }, thisdelay);
-}
-
-function startanimation(thisupdatenumberofstacks, thisspeed) {
-
     // start interval
 
-    if (debug) alert("startanimation");
     interval = setInterval( function() { updateall(thisupdatenumberofstacks); }, thisspeed);
     // updateallatdifferentspeeds(thisupdatenumberofstacks);
 }
