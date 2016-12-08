@@ -100,3 +100,4 @@ x mobile click window, document, body, etc.
 - instagram
 
 - add cancel browserstack in ical
+- add o-r-g credit
