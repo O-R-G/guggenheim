@@ -72,6 +72,9 @@ function populate($thisnumber) {
     <span class="stretch"></span>
 </div>
 
+<div id="fixed-container">
+</div>
+
 <div id="credits" class="block"><? 
     $txtdir = "media/txt/captions/long/";
     chdir($txtdir);

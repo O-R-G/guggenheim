@@ -57,10 +57,12 @@ function init() {
         if (creditsbtn.innerHTML == "Credits +") {
             creditsbtn.innerHTML = "Credits –";
             document.body.style.overflow='scroll';
-            document.getElementById('credits').style.visibility='visible';
+            // document.getElementById('credits').style.visibility='visible';
+            document.getElementById('credits').style.display='inline-block';
         } else {
             creditsbtn.innerHTML = "Credits +";
-            document.getElementById('credits').style.visibility='hidden';
+            // document.getElementById('credits').style.visibility='hidden';
+            document.getElementById('credits').style.display='none';
         } 
         event.stopImmediatePropagation();
     });
@@ -80,9 +82,9 @@ function init() {
             interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
             updateall();
         }
-        document.getElementById('credits').style.visibility='hidden';
+        // document.getElementById('credits').style.visibility='hidden';
+        document.getElementById('credits').style.display='none';
         creditsbtn.innerHTML = "Credits +";
-        if (debug) debuglog(e); 
     });
 
     // display all, start updates

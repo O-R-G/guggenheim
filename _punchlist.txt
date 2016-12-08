@@ -67,9 +67,13 @@ x mobile click window, document, body, etc.
 + captions italics
 + set initial images 
 + credits hide/show glitch in old safari
++ Google Analytics code, UA-5676651-2 for the production site
 x put thumb-container into a fixed div wrapper for scroll
   using overflow:hidden; but still likely messes up in safari 9.1
-+ Google Analytics code, UA-5676651-2 for the production site
+
+- body onload init()
+- ajax?
+
 - https://www.browserstack.com/accounts/subscriptions
 - Internet Explorer 11+ (Windows 7+) 
   Safari 9.0+ (Mac)

@@ -17,13 +17,13 @@
 html, body {
     margin: 0px;
     height: 100%; 
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: "Verlag A", "Verlag B", Helvetica, Arial, sans-serif;    
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    background-color: #FFF;
+    /* background-color: #FFF; */
     color: #000000;
 }
 
@@ -87,6 +87,10 @@ a:active {
 #fixed-container {
     position: fixed;
     width: 100%;
+    height: 110%;
+    top:0px;
+    background-color:#FF0;
+    z-index:-1;
 }
 
 #thumb-container {
@@ -126,7 +130,8 @@ a:active {
     text-align: justify;
     background-color: #FFF;
     display: inline-block;
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
 }
 
 #credits-btn {
