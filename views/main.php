@@ -13,7 +13,11 @@ function populate($thisnumber) {
     $txtdir = "media/txt/captions/";
     chdir($imgdir);
     $images = glob("*.jpg");
+    if ($thisnumber == "2") $startimg = "96.4511.jpg";
+    if ($thisnumber == "0") $startimg = "41.283.jpg";
+    if ($thisnumber == "1") $startimg = "92.4113.jpg";
     shuffle($images);
+    array_unshift($images,$startimg);   // insert $startimg at [0]
     chdir("../../");
     $i = 0;
     foreach($images as $image) {

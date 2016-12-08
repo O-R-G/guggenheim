@@ -62,13 +62,11 @@ x sound?
 + .gitignore, git reset, HEAD etc.
   set $host in views/head.php
 x mobile click window, document, body, etc.
-
-- set initial images 
 + update imgs
 + update captions
-- captions italics
-
-/ credits hide/show glitch in old safari
++ captions italics
++ set initial images 
++ credits hide/show glitch in old safari
 - put thumb-container into a fixed div wrapper for scroll
   when scroll, then change to not fixed with js?
   or else always show scrollbars with js or otherwise

@@ -20,7 +20,7 @@ var timers = [];    // settimeout ids
 var interval;       // setinterval id
 var running;
 var mobile = false;
-var debug = false;
+var debug = true;
 
 
 // init
@@ -40,7 +40,9 @@ function init() {
                 tmpimgs.push(tmp[i][j]);
         }
         imgs[i] = tmpimgs;
-        index[i] = Math.floor((Math.random() * (imgs[i].length-2)) + 1);    // random img b/t 1 & max
+        // index[i] = Math.floor((Math.random() * (imgs[i].length-2)) + 1);     // start on random img b/t 1 & max
+        index[i] = 0;                                                           // always start on same img
+        if (debug) debuglog(index[i]);
     }
     for (var i = 0; i < captioncontainers.length; i++)
         captions[i] = captioncontainers[i].children;
@@ -64,7 +66,7 @@ function init() {
     window.addEventListener("click", function(event) {
         if (running) {
             for (var i = 0; i < captioncontainers.length; i++)
-                captioncontainers[i].style.display = "block";                
+                captioncontainers[i].style.display = "block";
             for (var i = 0; i < timers.length; i++)
                 clearTimeout(timers[i]);
             if (interval) clearInterval(interval);
@@ -89,7 +91,6 @@ function init() {
     // updateallatdifferentspeeds(updatenumberofstacks);
     running = true;
 }
-// init();
 
 
 // update
@@ -97,7 +98,7 @@ function init() {
 function update(thisstack, thisindex, thisspeed, recursive) {
 
     var previndex = (thisindex - 1) % imgs[thisstack].length;
-    if (previndex <= 0) previndex = imgs[thisstack].length - 1;
+    if (previndex < 0) previndex = imgs[thisstack].length - 1;
     var thisimg = imgs[thisstack][thisindex];
     var previmg = imgs[thisstack][previndex];        
     var thiscaption = captions[thisstack][thisindex];
