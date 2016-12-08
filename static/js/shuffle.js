@@ -15,12 +15,15 @@ var index = [];
 var speed;
 if (!speed) 
     speed = 1150;
+var delay;
+if (!delay) 
+    delay = 1150;
 var probability = 1/3;
 var timers = [];    // settimeout ids
 var interval;       // setinterval id
 var running;
 var mobile = false;
-var debug = true;
+var debug = false;
 
 
 // init
@@ -28,6 +31,8 @@ var debug = true;
 function init() {
 
     // build imgs[], captions[] 2D arrays
+
+    if (debug) alert("loaded");
 
     var tmp = [];
     imgcontainers = document.getElementsByClassName('img-container');
@@ -87,17 +92,34 @@ function init() {
         creditsbtn.innerHTML = "Credits +";
     });
 
-    // display all, start updates
-
-    for (var i = 0; i < numberofstacks; i++)
-        index[i] = update(i, index[i], speed, false);
-    interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
-    // updateallatdifferentspeeds(updatenumberofstacks);
+    
+    startup(numberofstacks, updatenumberofstacks, index, delay, speed);
     running = true;
 }
 
 
 // update
+
+function startup(thisnumberofstacks, thisupdatenumberofstacks, thisindex, thisdelay, thisspeed) {
+
+    // display first four images, wait
+
+    if (debug) alert("startup");
+    for (var i = 0; i < thisnumberofstacks; i++)
+        thisindex[i] = update(i, thisindex[i], speed, false);
+
+    // set timeout to wait before starting animation
+    var delay = setTimeout(function(){ startanimation(thisupdatenumberofstacks, thisspeed); }, thisdelay);
+}
+
+function startanimation(thisupdatenumberofstacks, thisspeed) {
+
+    // start interval
+
+    if (debug) alert("startanimation");
+    interval = setInterval( function() { updateall(thisupdatenumberofstacks); }, thisspeed);
+    // updateallatdifferentspeeds(thisupdatenumberofstacks);
+}
 
 function update(thisstack, thisindex, thisspeed, recursive) {
 
