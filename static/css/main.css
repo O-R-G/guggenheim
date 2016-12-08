@@ -17,7 +17,7 @@
 html, body {
     margin: 0px;
     height: 100%; 
-    /* overflow: hidden; */
+    overflow: hidden;
     font-family: "Verlag A", "Verlag B", Helvetica, Arial, sans-serif;    
     font-style: normal;
     font-weight: 400;

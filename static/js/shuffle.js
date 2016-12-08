@@ -55,6 +55,7 @@ function init() {
     creditsbtn.addEventListener("click", function(event) {
         if (creditsbtn.innerHTML == "Credits +") {
             creditsbtn.innerHTML = "Credits –";
+            document.body.style.overflow='scroll';
             document.getElementById('credits').style.visibility='visible';
         } else {
             creditsbtn.innerHTML = "Credits +";
@@ -78,6 +79,7 @@ function init() {
             interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
             updateall();
         }
+        document.body.style.overflow='hidden';
         document.getElementById('credits').style.visibility='hidden';
         creditsbtn.innerHTML = "Credits +";
         if (debug) debuglog(e); 
