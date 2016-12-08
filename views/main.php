@@ -38,26 +38,28 @@ function populate($thisnumber) {
 ?>
 
 <div id="thumb-container">
+
     <div id="two" class="thumb"><?
         $number = "2"; 
         echo populate($number);
     ?></div>
+
     <div id="zero" class="thumb"><?
         $number = "0"; 
         echo populate($number);
     ?></div>
+
     <div id="one" class="thumb"><?
         $number = "1"; 
         echo populate($number);
     ?></div>
-    <div id="seven" class="thumb"><? 
-        $number = "7";
-        ?><div class="img-container">
+
+    <div id="seven" class="thumb"> 
+        <div class="img-container">
             <div class="square"></div>
-            <img src="media/png/<? echo $number; ?>.png" class="stack centered wide"><?
-        ?></div>
+            <img src="media/7/7.png" class="stack centered wide">
+        </div>
        <div class="caption-container">
-            <!-- <div class="caption"><div id="credits-btn">Credits +</div></div> -->
             <div class="caption"><div id="credits-btn">Credits +</div></div>
         </div>
     </div>

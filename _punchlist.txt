@@ -59,10 +59,9 @@ x sound?
 + all type black
 + footer smaller, spacing fixed on mobile
 + rm ?speed=
-x mobile click window, document, body, etc.
-
-- .gitignore, git reset, HEAD etc.
++ .gitignore, git reset, HEAD etc.
   set $host in views/head.php
+x mobile click window, document, body, etc.
 
 - set initial images 
 - update imgs
