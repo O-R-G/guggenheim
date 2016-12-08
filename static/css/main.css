@@ -18,7 +18,7 @@
 html, body {
     margin: 0px;    
     font-family: "Verlag A", "Verlag B", Helvetica, Arial, sans-serif;    
-    font-style: noraml;
+    font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
@@ -28,6 +28,13 @@ html, body {
 
 body {
     margin: 0 auto;
+}
+
+i {
+    font-family: "Verlag A", "Verlag B", Helvetica, Arial, sans-serif;    
+    font-style: italic;
+    font-weight: 400;
+    color:#FF0000;
 }
 
 img {
