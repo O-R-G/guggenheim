@@ -17,7 +17,8 @@ function populate($thisnumber) {
     if ($thisnumber == "0") $startimg = "41.283.jpg";
     if ($thisnumber == "1") $startimg = "92.4113.jpg";
     shuffle($images);
-    array_unshift($images,$startimg);   // insert $startimg at [0]
+    // array_unshift($images,$startimg);   // insert $startimg at [0]
+    array_push($images,$startimg);   // insert $startimg at end
     chdir("../../");
     $i = 0;
     foreach($images as $image) {

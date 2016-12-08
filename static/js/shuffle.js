@@ -41,9 +41,10 @@ function init() {
         }
         imgs[i] = tmpimgs;
         // index[i] = Math.floor((Math.random() * (imgs[i].length-2)) + 1);     // start on random img b/t 1 & max
-        index[i] = 0;                                                           // always start on same img
+        index[i] = imgs[i].length-1;    // start on last img
         if (debug) debuglog(index[i]);
     }
+    index[3] = 0;   // 7 position only has one, so start on [0]
     for (var i = 0; i < captioncontainers.length; i++)
         captions[i] = captioncontainers[i].children;
     var numberofstacks = imgcontainers.length;
@@ -99,7 +100,7 @@ function init() {
 function update(thisstack, thisindex, thisspeed, recursive) {
 
     var previndex = (thisindex - 1) % imgs[thisstack].length;
-    if (previndex < 0) previndex = imgs[thisstack].length - 1;
+    if (previndex <= 0) previndex = imgs[thisstack].length - 1;
     var thisimg = imgs[thisstack][thisindex];
     var previmg = imgs[thisstack][previndex];        
     var thiscaption = captions[thisstack][thisindex];
