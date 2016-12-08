@@ -16,7 +16,7 @@ $host = "http://web.guggenheim.org/holiday";
 		<!-- <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/710324/6123172/css/fonts.css"/> -->
         <!-- www.guggenheim.org/holiday -->
 		<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/710324/624620/css/fonts.css"/>
-		<!-- Google Analytics -->
+        <!-- Google Analytics -->
 		<script>
 		window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 		ga('create', 'UA-5676651-2', 'auto');
