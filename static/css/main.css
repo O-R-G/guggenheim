@@ -73,6 +73,7 @@ a:active {
     top: 30px;
     margin-left: 50px;
     width: 150px;
+    display: none;
 }
 
 #logo a:hover{
@@ -100,6 +101,38 @@ a:active {
     text-align: justify;
     -ms-text-justify: distribute-all-lines;
     text-justify: distribute-all-lines;
+}
+
+#instagram {
+}
+
+#instagram #thumb-container {
+    position: relative;
+    top: -450px;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 1024px;
+    text-align: left;
+}
+
+#instagram .thumb {
+    position: relative;
+    /* width: 42%; */
+    width: 438px;
+    margin-right: 50px;
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 484px;
+}
+
+#instagram #border {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 1024px;
+    width: 1024px;
+    border: 1px solid red;
+    z-index: 99;
 }
 
 #controls {
