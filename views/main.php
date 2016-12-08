@@ -93,5 +93,5 @@ function populate($thisnumber) {
     */
 ?><script type="text/javascript">
     // var speed = <? echo $speed; ?>;
-    init();
+    document.body.addEventListener("load", init());
 </script>
