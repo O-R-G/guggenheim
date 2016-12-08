@@ -351,7 +351,8 @@ a:active {
         top: 120px;
         margin-left: 20px;
         margin-right: 20px;
-        font-size: 6px;
+        font-size: 7px;
+        line-height: 9px;
     }
     .caption-container {
         top: 20px;
