@@ -74,15 +74,29 @@ x mobile click window, document, body, etc.
 / ajax (see servinglibrary.org/static/js/ajax.js
   easy enough to implement
 
-- https://www.browserstack.com/accounts/subscriptions
-- Internet Explorer 11+ (Windows 7+) 
-  Safari 9.0+ (Mac)
-  Firefox 47+ (Windows 7+/Mac)
-  Chrome 51+ (Windows 7+/Mac)
-  Android 5+
-  iOS 9.3+
++ https://www.browserstack.com/accounts/subscriptions
+
+/ Internet Explorer 11+ (Windows 7+)
+  scrollbar hide/show
+/ Firefox 47+ (Windows 7+)
+  scrollbar hide/show
+/ Chrome 51+ (Windows 7+)
+  scrollbar hide/show
+
++ Safari 9.0+ (Mac)
++ Firefox 47+ (Mac)
++ Chrome 51+ (Mac)
+
+/ iOS 9.3+
+  horizontal credits text size too big
+/ Android 5+
+  horizontal crops credits
+
 - Browser detection for unsupported browser 
   versions will display message that the browser is not supported 
   with basic holiday greeting. Guggenheim to provide such message.
+  can do this if init does not fire . . .
 
 - instagram
+
+- add cancel browserstack in ical
