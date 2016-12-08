@@ -54,30 +54,6 @@ function init() {
         captions[i] = captioncontainers[i].children;
     var numberofstacks = imgcontainers.length;
     var updatenumberofstacks = imgcontainers.length-1;
-    
-    startup(numberofstacks, updatenumberofstacks, index, delay, speed);
-    running = true;
-}
-
-
-// update
-
-function startup(thisnumberofstacks, thisupdatenumberofstacks, thisindex, thisdelay, thisspeed) {
-
-    if (debug) alert("startup");
-
-    // display first four images, wait
-
-    for (var i = 0; i < thisnumberofstacks; i++)
-        thisindex[i] = update(i, thisindex[i], speed, false);
-
-    // set timeout to wait before starting animation
-    var delay = setTimeout(function(){ startanimation(thisupdatenumberofstacks, thisspeed); }, thisdelay);
-}
-
-function startanimation(thisupdatenumberofstacks, thisspeed) {
-
-    if (debug) alert("startanimation");
 
     // add handlers
 
@@ -108,10 +84,38 @@ function startanimation(thisupdatenumberofstacks, thisspeed) {
                 captioncontainers[i].style.display = "none";
             interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
             updateall();
+            running = true;
         }
         document.getElementById('credits').style.display='none';
         creditsbtn.innerHTML = "Credits +";
     });
+
+    // startup 
+    
+    startup(numberofstacks, updatenumberofstacks, index, delay, speed);
+    running = true;
+}
+
+
+// update
+
+function startup(thisnumberofstacks, thisupdatenumberofstacks, thisindex, thisdelay, thisspeed) {
+
+    if (debug) alert("startup");
+
+    // display first four images, wait
+
+    for (var i = 0; i < thisnumberofstacks; i++)
+        thisindex[i] = update(i, thisindex[i], speed, false);
+
+    // set timeout to wait before starting animation
+    // var delay = setTimeout(function(){ startanimation(thisupdatenumberofstacks, thisspeed); }, thisdelay);
+    var delay = setTimeout(function(){ if (running) startanimation(thisupdatenumberofstacks, thisspeed); }, thisdelay);
+}
+
+function startanimation(thisupdatenumberofstacks, thisspeed) {
+
+    if (debug) alert("startanimation");
 
     // start interval
 
@@ -165,7 +169,6 @@ function updateall(numberofstacks) {
         updated = true;
         if (debug) debuglog("nothing updated --" + updatestack);
     } 
-    running = true;
 }
 
 function updateallatdifferentspeeds(numberofstacks) {
@@ -181,7 +184,6 @@ function updateallatdifferentspeeds(numberofstacks) {
         updated = true;
         if (debug) debuglog(i + " : " + updatespeed + " / " + updated);
     }
-    running = true;
 }
 
 
