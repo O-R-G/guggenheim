@@ -89,3 +89,14 @@ x ajax (see servinglibrary.org/static/js/ajax.js)
 / instagram
 - add cancel browserstack in ical
 - add o-r-g credit
+    
+4. One artwork missing credit (issue-4.jpg), should be Hilla Rebay,
+Concentration, 1949
+
+5. Several captions seem to have issues following ³.² in the caption. Two
+examples noted, one attached: 1, Extra line space within Hamilton credit,
+after ³R.², should be eliminated. (issue-5.jpg) 2, Valmier caption
+continues after ³ca². Please review and confirm all captions with ³.² in
+them.
+
+

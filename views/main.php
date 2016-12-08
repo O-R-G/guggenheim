@@ -77,15 +77,8 @@ function populate($thisnumber) {
 
 <div id="credits" class="block"><? 
     $txtdir = "media/txt/captions/long/";
-    chdir($txtdir);
-    $txts = glob("*");
-    chdir("../../../../");
-    $i = 0;
-    foreach($txts as $txt) {
-        $captionslong[$i] = file_get_contents($txtdir . $txt);
-        echo "<div class='block'>" . $captionslong[$i] . "</div>";
-        $i++;
-    }
+    $credits = file_get_contents($txtdir . "credits.txt");
+    echo "<div class='block'>" . $credits . "</div>";
 ?></div>
 
 <script type="text/javascript" src="<? echo $host ?>/static/js/shuffle.js"></script><?
