@@ -79,7 +79,6 @@ function init() {
             interval = setInterval( function() { updateall(updatenumberofstacks); }, speed);
             updateall();
         }
-        document.body.style.overflow='hidden';
         document.getElementById('credits').style.visibility='hidden';
         creditsbtn.innerHTML = "Credits +";
         if (debug) debuglog(e); 
