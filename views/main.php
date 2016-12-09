@@ -72,9 +72,6 @@ function populate($thisnumber) {
     <span class="stretch"></span>
 </div>
 
-<div id="fixed-container">
-</div>
-
 <div id="credits" class="block"><? 
     $txtdir = "media/txt/captions/long/";
     $credits = file_get_contents($txtdir . "credits.txt");
@@ -82,10 +79,10 @@ function populate($thisnumber) {
 ?></div>
 
 <script type="text/javascript" src="<? echo $host ?>/static/js/shuffle.js"></script><?
-    $speed = $_GET["speed"];
-    if (!$speed)
-        $speed = 1150;
+    // $speed = $_GET["speed"];
+    // if (!$speed)
+    //    $speed = 1150;
 ?><script type="text/javascript">
-    var speed = <? echo $speed; ?>;
+    // var speed = <? echo $speed; ?>;
     document.body.addEventListener("load", init());
 </script>

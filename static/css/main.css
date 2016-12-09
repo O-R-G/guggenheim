@@ -17,8 +17,9 @@
 html, body {
     margin: 0px;
     height: 100%; 
-    /* overflow: hidden; */
-    overflow-y: scroll;
+    width: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch; /* momentum scroll */
     font-family: "Verlag A", "Verlag B", Helvetica, Arial, sans-serif;    
     font-style: normal;
     font-weight: 400;
@@ -83,14 +84,6 @@ a:active {
 
 #logo-svg {
     width: 100%;
-}
-
-#fixed-container {
-    /* safari 9.1 workaround force scrollbar for calculating width */
-    position: fixed;
-    top: 0px;
-    height: 100%;
-    z-index:-1;
 }
 
 #thumb-container {

@@ -84,10 +84,10 @@ x ajax (see servinglibrary.org/static/js/ajax.js)
   horizontal credits text size
 + Android 5+
 + captions edge cases
-/ instagram
 + o-r-g credit
-- fixed front
++ fixed front
+/ instagram
 - Browser detection for unsupported browser 
   versions will display message that the browser is not supported 
   with basic holiday greeting. Guggenheim to provide such message.
-  can do this if init does not fire . . .
+  can do this if init does not fire ...
