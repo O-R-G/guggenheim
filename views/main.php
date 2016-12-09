@@ -26,7 +26,7 @@ function populate($thisnumber) {
                 $size = getimagesize($url);
                 $wide_tall = (($size[0] >= $size[1]) ? wide : tall);
                 $html .= "  <img src='" . $url . "' class='stack centered " . $wide_tall ."'>";
-                $captionslong[$i] = file_get_contents($txtdir . "long/" . pathinfo($image, PATHINFO_FILENAME));
+                // $captionslong[$i] = file_get_contents($txtdir . "long/" . pathinfo($image, PATHINFO_FILENAME));
                 $captionsshort[$i] = file_get_contents($txtdir . "short/" . pathinfo($image, PATHINFO_FILENAME));
                 $i++;
     }
@@ -82,12 +82,10 @@ function populate($thisnumber) {
 ?></div>
 
 <script type="text/javascript" src="<? echo $host ?>/static/js/shuffle.js"></script><?
-    /*
     $speed = $_GET["speed"];
     if (!$speed)
-        $speed = 1000;
-    */
+        $speed = 1150;
 ?><script type="text/javascript">
-    // var speed = <? echo $speed; ?>;
+    var speed = <? echo $speed; ?>;
     document.body.addEventListener("load", init());
 </script>
