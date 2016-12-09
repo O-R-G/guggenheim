@@ -73,6 +73,7 @@ x mobile click window, document, body, etc.
 + body onload init()
 x ajax (see servinglibrary.org/static/js/ajax.js)
 + https://www.browserstack.com/accounts/subscriptions
++ cancel browserstack in ical
 + Internet Explorer 11+ (Windows 7+)
 + Firefox 47+ (Windows 7+)
 + Chrome 51+ (Windows 7+)
@@ -82,21 +83,11 @@ x ajax (see servinglibrary.org/static/js/ajax.js)
 + iOS 9.3+
   horizontal credits text size
 + Android 5+
++ captions edge cases
+/ instagram
 - Browser detection for unsupported browser 
   versions will display message that the browser is not supported 
   with basic holiday greeting. Guggenheim to provide such message.
   can do this if init does not fire . . .
-/ instagram
-- add cancel browserstack in ical
-- add o-r-g credit
-    
-4. One artwork missing credit (issue-4.jpg), should be Hilla Rebay,
-Concentration, 1949
-
-5. Several captions seem to have issues following ³.² in the caption. Two
-examples noted, one attached: 1, Extra line space within Hamilton credit,
-after ³R.², should be eliminated. (issue-5.jpg) 2, Valmier caption
-continues after ³ca². Please review and confirm all captions with ³.² in
-them.
-
+- o-r-g credit
 
