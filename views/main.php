@@ -42,6 +42,14 @@ function populate($thisnumber) {
 }
 ?>
 
+<!--[if lt IE 6]>
+<div style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: white; color: black;">
+    <div style="position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; margin-top: -150px; margin-left: -150px;">
+        This website will not display in your chosen browser. Happy New Year, from everyone at the Guggenheim.
+    </div>
+</div>
+<![endif]-->
+
 <div id="thumb-container">
 
     <div id="two" class="thumb"><?
@@ -79,10 +87,17 @@ function populate($thisnumber) {
 ?></div>
 
 <script type="text/javascript" src="<? echo $host ?>/static/js/shuffle.js"></script><?
+    // set speed for dev
     // $speed = $_GET["speed"];
     // if (!$speed)
     //    $speed = 1150;
 ?><script type="text/javascript">
     // var speed = <? echo $speed; ?>;
-    document.body.addEventListener("load", init());
+    if (document.body.addEventListener) {                
+        // IE9+ and all major browsers
+        document.body.addEventListener("load", init());
+    } else if (document.body.attachEvent) {              
+        // IE 8-
+        document.body.attachEvent("load", init());
+    }
 </script>

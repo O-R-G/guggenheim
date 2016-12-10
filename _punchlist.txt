@@ -74,20 +74,29 @@ x mobile click window, document, body, etc.
 x ajax (see servinglibrary.org/static/js/ajax.js)
 + https://www.browserstack.com/accounts/subscriptions
 + cancel browserstack in ical
+
 + Internet Explorer 11+ (Windows 7+)
+  confirmed IE9+
 + Firefox 47+ (Windows 7+)
+  confirmed 10+
 + Chrome 51+ (Windows 7+)
+  confirmed 15+
 + Safari 9.0+ (Mac)
+  confirmed 4+
 + Firefox 47+ (Mac)
+  confirmed 10+
 + Chrome 51+ (Mac)
+  confirmed 16+
 + iOS 9.3+
-  horizontal credits text size
+  confirmed 4+
 + Android 5+
+  confirmed 1.6+
 + captions edge cases
 + o-r-g credit
 + fixed front
-/ instagram
-- Browser detection for unsupported browser 
+x instagram
++ Browser detection for unsupported browser 
   versions will display message that the browser is not supported 
   with basic holiday greeting. Guggenheim to provide such message.
-  can do this if init does not fire ...
+  This website will not display in your chosen browser. 
+  Happy New Year, from everyone at the Guggenheim.
